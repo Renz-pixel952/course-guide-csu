@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Course — CSU Sanchez Mira</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --red: #8b1a1a;
+      --red-light: #a52a2a;
+      --red-bg: #fdf5f5;
+      --white: #ffffff;
+      --off-white: #f9f6f1;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: #e5e0d8;
+      --card: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); }
+
+    /* TOP BAR */
+    .topbar {
+      background: var(--red);
+      color: white;
+      font-size: 0.78rem;
+      padding: 0.4rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar a { color: rgba(255,255,255,0.8); text-decoration: none; }
+    .topbar a:hover { color: white; }
+    .topbar-links { display: flex; gap: 1.5rem; }
+
+    /* NAV */
+    nav {
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--red);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      background: var(--red);
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .nav-logo-text span { color: var(--red); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--red); }
+    .nav-cta { background: var(--red) !important; color: white !important; padding: 0.5rem 1.2rem; border-radius: 4px; }
+    .nav-cta:hover { background: var(--red-light) !important; }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 85vh;
+      align-items: center;
+    }
+    .hero-left {
+      padding: 4rem 3rem 4rem 4rem;
+      background: var(--off-white);
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+    .hero-left h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .hero-left h1 span { color: var(--red); text-decoration: underline; text-decoration-style: wavy; }
+    .quote-box {
+      border-left: 4px solid var(--red);
+      padding: 1rem 1.5rem;
+      background: white;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1rem;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .btn-red { background: var(--red); color: white; padding: 0.85rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: background 0.2s; }
+    .btn-red:hover { background: var(--red-light); }
+    .btn-outline { background: transparent; color: var(--red); padding: 0.85rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.9rem; border: 2px solid var(--red); transition: background 0.2s; }
+    .btn-outline:hover { background: var(--red-bg); }
+
+    /* HERO RIGHT — CAMPUS IMAGE */
+    .hero-right {
+      position: relative;
+      height: 100%;
+      min-height: 500px;
+      overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-right-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      background: linear-gradient(135deg, #8b1a1a, #a52a2a);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 2rem;
+      gap: 1rem;
+    }
+    .hero-right-placeholder .big-icon { font-size: 4rem; }
+    .hero-badge-overlay {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      background: white;
+      border-left: 4px solid var(--red);
+      padding: 0.8rem 1.2rem;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .hero-badge-overlay h3 { font-size: 0.9rem; color: var(--ink); font-weight: 700; }
+    .hero-badge-overlay p { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: var(--red);
+      color: white;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+    }
+    .stat-item { padding: 1.5rem; border-right: 1px solid rgba(255,255,255,0.15); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; }
+    .stat-label { font-size: 0.75rem; opacity: 0.8; margin-top: 0.2rem; }
+
+    /* COURSES */
+    .courses-section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--ink); }
+    .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .course-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--ink);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(139,26,26,0.1); }
+    .course-card-top {
+      background: var(--off-white);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .course-icon-box {
+      background: var(--red);
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .course-card-top h3 { font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+    .course-tag { font-size: 0.72rem; color: var(--red); font-weight: 600; margin-top: 0.2rem; }
+    .course-card-body { padding: 1.2rem 1.5rem; flex-grow: 1; }
+    .course-card-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .course-card-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .course-card-footer span { font-size: 0.78rem; color: var(--muted); }
+    .course-card-footer .arrow { color: var(--red); font-weight: 700; font-size: 0.85rem; }
+
+    /* QUIZ BANNER */
+    .quiz-banner {
+      background: var(--off-white);
+      border-top: 2px solid var(--border);
+      border-bottom: 2px solid var(--border);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .quiz-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--ink); margin-bottom: 1rem; }
+    .quiz-banner p { color: var(--muted); max-width: 500px; margin: 0 auto 2rem; line-height: 1.8; }
+
+    /* TIPS */
+    .tips-section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .tip-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; border-top: 3px solid var(--red); }
+    .tip-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--red); opacity: 0.3; margin-bottom: 0.5rem; }
+    .tip-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+    .tip-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    /* FOOTER */
+    footer { background: var(--ink); color: rgba(255,255,255,0.6); padding: 2.5rem 2rem; text-align: center; font-size: 0.82rem; }
+    footer strong { color: white; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 300px; }
+      .hero-left { padding: 3rem 1.5rem; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .topbar { display: none; }
+      .nav-links { display: none; }
+    }
+
+    /* FADE IN */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-links">
+      <a href="#">CSU Official Website</a>
+      <a href="#">Admissions</a>
+      <a href="#">Library</a>
+    </div>
+    <div>CSU Sanchez Mira Campus — Cagayan, Philippines</div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🎓</div>
+      <div class="nav-logo-text">CSU <span>Course Guide</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#tips">Tips</a></li>
+      <li><a href="quiz.html">Take Quiz</a></li>
+      <li><a href="quiz.html" class="nav-cta">Find My Course →</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Cagayan State University — Sanchez Mira Campus</p>
+      <h1>Not Sure What Course to Choose <span>This School Year?</span></h1>
+
+      <div class="quote-box">
+        "It's okay to feel uncertain. Your future isn't written in one decision — it's built one step at a time. Trust yourself, you'll find your way."
+      </div>
+
+      <div class="quote-box">
+        "Don't let fear of choosing wrong stop you. There is no 'wrong' path, only different roads leading to where you're meant to be."
+      </div>
+
+      <div class="hero-btns">
+        <a href="#courses" class="btn-red">Explore Courses →</a>
+        <a href="quiz.html" class="btn-outline">Take the Quiz</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img src="https://lh3.googleusercontent.com/d/1gXBoMVKGTyztbCBqEPuwtxtBnG9qln-p" 
+           alt="CSU Sanchez Mira Campus"
+           onerror="this.style.display='none'; document.getElementById('placeholder').style.display='flex';">
+      <div id="placeholder" class="hero-right-placeholder" style="display:none;">
+        <div class="big-icon">🏫</div>
+        <strong style="color:white;">CSU Sanchez Mira Campus</strong>
+        <p>Sanchez Mira, Cagayan</p>
+      </div>
+      <div class="hero-badge-overlay">
+        <h3>CSU Sanchez Mira</h3>
+        <p>Quality Education Since 1978</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">Courses Offered</div></div>
+    <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Years to Graduate</div></div>
+    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Quality Education</div></div>
+    <div class="stat-item"><div class="stat-num">CSU</div><div class="stat-label">State University</div></div>
+  </div>
+
+  <!-- COURSES -->
+  <div class="courses-section" id="courses">
+    <div class="section-header fade-up">
+      <p class="section-eyebrow">Available Courses</p>
+      <h2 class="section-title">Find the Right Course for You</h2>
+    </div>
+    <div class="courses-grid">
+      <a href="bsit.html" class="course-card fade-up">
+        <div class="course-card-top">
+          <div class="course-icon-box">💻</div>
+          <div><h3>BS Information Technology</h3><div class="course-tag">Technology</div></div>
+        </div>
+        <div class="course-card-body"><p>Build apps, websites, and systems. Perfect for tech lovers who enjoy solving problems with computers and technology.</p></div>
+        <div class="course-card-footer"><span>4 Years · Board Exam</span><span class="arrow">Learn More →</span></div>
+      </a>
+      <a href="bsed.html" class="course-card fade-up">
+        <div class="course-card-top">
+          <div class="course-icon-box">📚</div>
+          <div><h3>Bachelor of Secondary Education</h3><div class="course-tag">Education</div></div>
+        </div>
+        <div class="course-card-body"><p>Shape the next generation. Become a high school teacher and make a difference in students' lives every single day.</p></div>
+        <div class="course-card-footer"><span>4 Years · LET Exam</span><span class="arrow">Learn More →</span></div>
+      </a>
+      <a href="beed.html" class="course-card fade-up">
+        <div class="course-card-top">
+          <div class="course-icon-box">🎒</div>
+          <div><h3>Bachelor of Elementary Education</h3><div class="course-tag">Education</div></div>
+        </div>
+        <div class="course-card-body"><p>Inspire young minds. Work with children and help build their foundation for lifelong learning and growth.</p></div>
+        <div class="course-card-footer"><span>4 Years · LET Exam</span><span class="arrow">Learn More →</span></div>
+      </a>
+      <a href="bsba.html" class="course-card fade-up">
+        <div class="course-card-top">
+          <div class="course-icon-box">📊</div>
+          <div><h3>BS Business Administration</h3><div class="course-tag">Business</div></div>
+        </div>
+        <div class="course-card-body"><p>Learn how to run businesses, manage teams, and make smart decisions in the world of commerce and trade.</p></div>
+        <div class="course-card-footer"><span>4 Years · Board Exam</span><span class="arrow">Learn More →</span></div>
+      </a>
+      <a href="bscrim.html" class="course-card fade-up">
+        <div class="course-card-top">
+          <div class="course-icon-box">⚖️</div>
+          <div><h3>BS Criminology</h3><div class="course-tag">Law & Justice</div></div>
+        </div>
+        <div class="course-card-body"><p>Pursue justice. Study crime, law, and public safety — for those who want to serve and protect their community.</p></div>
+        <div class="course-card-footer"><span>4 Years · Board Exam</span><span class="arrow">Learn More →</span></div>
+      </a>
+      <a href="bsag.html" class="course-card fade-up">
+        <div class="course-card-top">
+          <div class="course-icon-box">🌾</div>
+          <div><h3>BS Agriculture</h3><div class="course-tag">Agriculture</div></div>
+        </div>
+        <div class="course-card-body"><p>Feed the nation. Learn modern farming, crop science, and sustainable agriculture practices for rural communities.</p></div>
+        <div class="course-card-footer"><span>4 Years · Board Exam</span><span class="arrow">Learn More →</span></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- QUIZ BANNER -->
+  <div class="quiz-banner">
+    <div class="fade-up">
+      <p class="section-eyebrow">Not Sure Yet?</p>
+      <h2>Take Our Course Finder Quiz</h2>
+      <p>Answer 6 simple questions about your interests and goals — and we'll suggest the best course for you at CSU Sanchez Mira!</p>
+      <a href="quiz.html" class="btn-red">Start the Quiz →</a>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="tips-section" id="tips">
+    <div class="section-header fade-up">
+      <p class="section-eyebrow">Helpful Advice</p>
+      <h2 class="section-title">Tips for Choosing the Right Course</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card fade-up"><div class="tip-num">01</div><h3>Know Your Interests</h3><p>What subjects do you enjoy most in school? Your interests are a strong indicator of what course you'll love.</p></div>
+      <div class="tip-card fade-up"><div class="tip-num">02</div><h3>Think About Your Strengths</h3><p>Are you good with numbers? Creative? A natural leader? Choose a course that plays to your strengths.</p></div>
+      <div class="tip-card fade-up"><div class="tip-num">03</div><h3>Consider Job Opportunities</h3><p>Research what careers are in demand. Think about where you want to be 5 to 10 years from now.</p></div>
+      <div class="tip-card fade-up"><div class="tip-num">04</div><h3>Talk to People</h3><p>Ask students, teachers, and professionals about their experience. Real stories help you decide better.</p></div>
+      <div class="tip-card fade-up"><div class="tip-num">05</div><h3>It's Okay to Change</h3><p>Many successful people shifted courses. What matters is you keep moving forward and never stop learning.</p></div>
+      <div class="tip-card fade-up"><div class="tip-num">06</div><h3>Trust Your Gut</h3><p>After all the research, trust yourself. You know your dreams better than anyone else does.</p></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>CSU Course Guide</strong> · Cagayan State University — Sanchez Mira Campus 🇵🇭</p>
+    <p style="margin-top:0.4rem;">Made by <strong>Renz</strong> — BSIT Student, Flora, Apayao</p>
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-up');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80); });
+    }, { threshold: 0.1 });
+    faders.forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

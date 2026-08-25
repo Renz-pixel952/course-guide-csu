@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BS Criminology — CSU Sanchez Mira</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --red: #8b1a1a; --red-light: #a52a2a; --red-bg: #fdf5f5; --white: #ffffff; --off-white: #f9f6f1; --ink: #1a1a1a; --muted: #6b6b6b; --border: #e5e0d8; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); }
+    nav { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--red); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .nav-logo-icon { background: var(--red); color: white; width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--ink); font-weight: 700; }
+    .nav-logo-text span { color: var(--red); }
+    nav a.back { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+    nav a.back:hover { color: var(--red); }
+    .hero { background: var(--off-white); padding: 80px 2rem 4rem; text-align: center; border-bottom: 2px solid var(--border); }
+    .hero-badge { display: inline-block; background: var(--red); color: white; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 4px; margin-bottom: 1.5rem; }
+    .hero-icon { font-size: 4rem; margin-bottom: 1rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 3rem); color: var(--ink); margin-bottom: 1rem; }
+    .hero p { color: var(--muted); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.8; }
+    .hero-tags { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+    .tag { background: white; border: 1px solid var(--border); color: var(--red); font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 4px; }
+    .content { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
+    .info-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; border-top: 3px solid var(--red); }
+    .info-card h2 { color: var(--red); font-size: 1rem; margin-bottom: 1rem; }
+    .info-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .info-card ul li { color: var(--muted); font-size: 0.85rem; display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.5; }
+    .info-card ul li::before { content: '→'; color: var(--red); flex-shrink: 0; }
+    .salary-box { background: var(--red); color: white; border-radius: 8px; padding: 2rem; text-align: center; margin-bottom: 2rem; }
+    .salary-box h2 { font-family: 'Playfair Display', serif; margin-bottom: 1rem; }
+    .salary-num { font-size: 2.5rem; font-weight: 700; }
+    .salary-label { font-size: 0.85rem; opacity: 0.8; margin-top: 0.3rem; }
+    .right-for-you { background: var(--off-white); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+    .right-for-you h2 { color: var(--red); margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .check-list li { color: var(--muted); font-size: 0.88rem; display: flex; align-items: flex-start; gap: 0.7rem; line-height: 1.5; }
+    .check-list li::before { content: '✓'; color: #16a34a; font-weight: 700; flex-shrink: 0; }
+    .btn-back { display: inline-block; background: var(--red); color: white; padding: 0.8rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600; margin-right: 1rem; }
+    .btn-quiz { display: inline-block; background: transparent; color: var(--red); padding: 0.8rem 2rem; border-radius: 4px; text-decoration: none; font-weight: 600; border: 2px solid var(--red); }
+    footer { background: var(--ink); color: rgba(255,255,255,0.6); padding: 2rem; text-align: center; font-size: 0.82rem; }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🎓</div>
+      <div class="nav-logo-text">CSU <span>Course Guide</span></div>
+    </a>
+    <a href="index.html" class="back">← Back to Home</a>
+  </nav>
+  <div class="hero">
+    <div class="hero-badge">Law & Justice</div>
+    <div class="hero-icon">⚖️</div>
+    <h1>BS Criminology</h1>
+    <p>Pursue justice and protect communities. BSCrim prepares you for a career in law enforcement, crime investigation, and public safety — serving with honor and integrity.</p>
+    <div class="hero-tags">
+      <span class="tag">4 Years</span>
+      <span class="tag">Criminologist Board Exam</span>
+      <span class="tag">Government Career</span>
+      <span class="tag">PNP / NBI Eligible</span>
+    </div>
+  </div>
+  <div class="content">
+    <div class="info-grid">
+      <div class="info-card">
+        <h2>📖 What You'll Learn</h2>
+        <ul>
+          <li>Criminal law and jurisprudence</li>
+          <li>Crime investigation techniques</li>
+          <li>Forensic science basics</li>
+          <li>Law enforcement administration</li>
+          <li>Criminalistics</li>
+          <li>Correctional administration</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h2>💼 Career Paths</h2>
+        <ul>
+          <li>Police Officer (PNP)</li>
+          <li>NBI Agent</li>
+          <li>Jail Officer</li>
+          <li>Forensic Investigator</li>
+          <li>Security Manager</li>
+          <li>Criminologist</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h2>🌏 Where You Can Work</h2>
+        <ul>
+          <li>Philippine National Police (PNP)</li>
+          <li>National Bureau of Investigation (NBI)</li>
+          <li>Bureau of Jail Management</li>
+          <li>Bureau of Immigration</li>
+          <li>Private security companies</li>
+          <li>Government agencies</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h2>📋 Subjects Overview</h2>
+        <ul>
+          <li>Introduction to Criminology</li>
+          <li>Criminal Law 1 and 2</li>
+          <li>Forensic Photography</li>
+          <li>Police Administration</li>
+          <li>Questioned Documents</li>
+          <li>Practicum / OJT</li>
+        </ul>
+      </div>
+    </div>
+    <div class="salary-box">
+      <h2>💰 Average Starting Salary in Philippines</h2>
+      <div class="salary-num">₱25,000 – ₱35,000</div>
+      <div class="salary-label">per month as a government law enforcement officer · Ranks and allowances increase salary significantly</div>
+    </div>
+    <div class="right-for-you">
+      <h2>✅ Is BSCrim Right for You?</h2>
+      <ul class="check-list">
+        <li>You want to serve and protect your community</li>
+        <li>You are disciplined, brave, and physically fit</li>
+        <li>You believe strongly in justice and the law</li>
+        <li>You are interested in crime and investigation</li>
+        <li>You want a government career with benefits</li>
+        <li>You are willing to face challenges with courage</li>
+      </ul>
+    </div>
+    <a href="index.html" class="btn-back">← Back to Courses</a>
+    <a href="quiz.html" class="btn-quiz">Take the Quiz →</a>
+  </div>
+  <footer><p><strong>CSU Course Guide</strong> · Cagayan State University — Sanchez Mira Campus 🇵🇭</p></footer>
+</body>
+</html>

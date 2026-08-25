@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Finder Quiz — CSU Sanchez Mira</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{--red:#8b1a1a;--white:#ffffff;--off-white:#f9f6f1;--ink:#1a1a1a;--muted:#6b6b6b;--border:#e5e0d8;}
+    body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--ink);min-height:100vh;}
+    nav{background:white;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--red);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+    .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;}
+    .nav-logo-icon{background:var(--red);color:white;width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+    .nav-logo-text{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--ink);font-weight:700;}
+    .nav-logo-text span{color:var(--red);}
+    nav a.back{color:var(--muted);text-decoration:none;font-size:0.85rem;}
+    nav a.back:hover{color:var(--red);}
+    .quiz-wrapper{max-width:700px;margin:0 auto;padding:80px 2rem 5rem;}
+    .quiz-header{text-align:center;margin-bottom:2.5rem;}
+    .quiz-header .eyebrow{font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:0.5rem;}
+    .quiz-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.5rem);color:var(--ink);margin-bottom:0.8rem;}
+    .quiz-header p{color:var(--muted);line-height:1.8;}
+    .progress-wrap{background:var(--border);border-radius:999px;height:6px;margin-bottom:2rem;overflow:hidden;}
+    .progress-fill{height:100%;background:var(--red);border-radius:999px;transition:width 0.4s ease;}
+    .question-card{background:white;border:1px solid var(--border);border-radius:8px;padding:2rem;margin-bottom:1.5rem;border-top:3px solid var(--red);}
+    .q-num{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:0.8rem;}
+    .q-text{font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:1.5rem;line-height:1.5;}
+    .options{display:flex;flex-direction:column;gap:0.7rem;}
+    .option{background:var(--off-white);border:1px solid var(--border);border-radius:6px;padding:0.9rem 1.2rem;color:var(--muted);font-size:0.9rem;cursor:pointer;text-align:left;transition:all 0.2s;width:100%;}
+    .option:hover{border-color:var(--red);background:white;color:var(--ink);}
+    .option.selected{border-color:var(--red);background:white;color:var(--ink);font-weight:600;}
+    .nav-btns{display:flex;gap:1rem;margin-top:1.5rem;}
+    .btn-next{background:var(--red);color:white;padding:0.8rem 2rem;border-radius:4px;border:none;font-weight:600;cursor:pointer;font-size:0.95rem;flex:1;transition:background 0.2s;}
+    .btn-next:hover{background:#a52a2a;}
+    .btn-prev{background:transparent;color:var(--muted);padding:0.8rem 1.5rem;border-radius:4px;border:1px solid var(--border);font-weight:600;cursor:pointer;font-size:0.95rem;transition:all 0.2s;}
+    .btn-prev:hover{border-color:var(--red);color:var(--red);}
+    .result-card{background:white;border:1px solid var(--border);border-radius:8px;padding:2.5rem;text-align:center;display:none;border-top:4px solid var(--red);}
+    .result-icon{font-size:4rem;margin-bottom:1rem;}
+    .result-title{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ink);margin-bottom:0.5rem;}
+    .result-badge{display:inline-block;background:var(--red);color:white;font-size:0.78rem;font-weight:700;padding:0.3rem 1rem;border-radius:4px;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.08em;}
+    .result-desc{color:var(--muted);line-height:1.8;margin-bottom:2rem;}
+    .result-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .btn-view{background:var(--red);color:white;padding:0.8rem 2rem;border-radius:4px;text-decoration:none;font-weight:600;}
+    .btn-retake{background:transparent;color:var(--red);padding:0.8rem 2rem;border-radius:4px;border:2px solid var(--red);font-weight:600;cursor:pointer;}
+    footer{background:var(--ink);color:rgba(255,255,255,0.6);padding:2rem;text-align:center;font-size:0.82rem;}
+    footer strong{color:white;}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🎓</div>
+      <div class="nav-logo-text">CSU <span>Course Guide</span></div>
+    </a>
+    <a href="index.html" class="back">← Back to Home</a>
+  </nav>
+  <div class="quiz-wrapper">
+    <div class="quiz-header">
+      <p class="eyebrow">Course Finder</p>
+      <h1>Which Course is Right for You?</h1>
+      <p>Answer 6 simple questions and we'll suggest the best course for you at CSU Sanchez Mira!</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div id="quizContainer"></div>
+    <div class="result-card" id="resultCard">
+      <div class="result-icon" id="resultIcon"></div>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-badge" id="resultBadge"></div>
+      <div class="result-desc" id="resultDesc"></div>
+      <div class="result-btns">
+        <a href="#" class="btn-view" id="resultLink">View Course Details →</a>
+        <button class="btn-retake" onclick="restartQuiz()">Retake Quiz</button>
+      </div>
+    </div>
+  </div>
+  <footer><p><strong>CSU Course Guide</strong> · Cagayan State University — Sanchez Mira Campus 🇵🇭</p></footer>
+  <script>
+    const questions=[
+      {text:"What subject do you enjoy the most in school?",options:[{text:"📐 Math and Science",scores:{bsit:2,bsba:1}},{text:"📖 English and Social Studies",scores:{bsed:2,beed:1}},{text:"💰 Economics and Business subjects",scores:{bsba:2,bscrim:1}},{text:"🌾 Agriculture and MAPEH",scores:{bsag:2,beed:1}}]},
+      {text:"What kind of work do you see yourself doing in the future?",options:[{text:"💻 Building apps, websites, and computer systems",scores:{bsit:3}},{text:"👨‍🏫 Teaching students in a classroom",scores:{bsed:2,beed:2}},{text:"🏢 Running or managing a business",scores:{bsba:3}},{text:"⚖️ Serving justice and protecting communities",scores:{bscrim:3}}]},
+      {text:"What best describes your personality?",options:[{text:"🔍 Logical and analytical — I love solving puzzles",scores:{bsit:2,bsba:1}},{text:"❤️ Patient and caring — I love helping others learn",scores:{bsed:2,beed:2}},{text:"💪 Disciplined and brave — I like order and rules",scores:{bscrim:3}},{text:"🌱 Hardworking and outdoorsy — I love nature",scores:{bsag:3}}]},
+      {text:"What activities do you enjoy in your free time?",options:[{text:"💻 Browsing the internet, gaming, or coding",scores:{bsit:3}},{text:"📚 Reading books or tutoring younger students",scores:{bsed:2,beed:2}},{text:"📊 Watching business news or handling finances",scores:{bsba:3}},{text:"🌾 Gardening, farming, or spending time outdoors",scores:{bsag:3}}]},
+      {text:"What kind of impact do you want to make?",options:[{text:"🌐 Help people through technology and innovation",scores:{bsit:3}},{text:"🎓 Shape the minds of the next generation",scores:{bsed:2,beed:2}},{text:"💼 Create jobs and grow the economy",scores:{bsba:3}},{text:"🛡️ Keep communities safe and uphold justice",scores:{bscrim:3}}]},
+      {text:"Where do you dream of working someday?",options:[{text:"🏢 Tech company or working from home remotely",scores:{bsit:3}},{text:"🏫 School or university as a teacher",scores:{bsed:2,beed:2}},{text:"🏦 Business, bank, or your own company",scores:{bsba:3}},{text:"👮 Police station, court, or government agency",scores:{bscrim:3}}]}
+    ];
+    const courses={
+      bsit:{title:"BS Information Technology",icon:"💻",badge:"Technology",desc:"You have a logical mind and love technology! BSIT is perfect for you. You will build apps, websites, and systems that help people in their daily lives.",link:"bsit.html"},
+      bsed:{title:"Bachelor of Secondary Education",icon:"📚",badge:"Education",desc:"You are patient, caring, and love sharing knowledge! BSEd will prepare you to become a high school teacher who inspires students every day.",link:"bsed.html"},
+      beed:{title:"Bachelor of Elementary Education",icon:"🎒",badge:"Education",desc:"You have a big heart for children! BEEd will train you to become an elementary teacher who builds the foundation of young learners.",link:"beed.html"},
+      bsba:{title:"BS Business Administration",icon:"📊",badge:"Business",desc:"You are a natural leader with business instincts! BSBA will teach you how to run organizations, manage teams, and make smart business decisions.",link:"bsba.html"},
+      bscrim:{title:"BS Criminology",icon:"⚖️",badge:"Law & Justice",desc:"You are disciplined, brave, and want to serve justice! BSCrim will prepare you for a career in law enforcement, investigation, and public safety.",link:"bscrim.html"},
+      bsag:{title:"BS Agriculture",icon:"🌾",badge:"Agriculture",desc:"You love nature and want to help feed the nation! BSAg will teach you modern farming, crop science, and sustainable agriculture.",link:"bsag.html"}
+    };
+    let currentQ=0,scores={bsit:0,bsed:0,beed:0,bsba:0,bscrim:0,bsag:0},answers=new Array(questions.length).fill(null);
+    function renderQuestion(){
+      const q=questions[currentQ];
+      document.getElementById('progressFill').style.width=((currentQ/questions.length)*100)+'%';
+      document.getElementById('quizContainer').innerHTML=`
+        <div class="question-card">
+          <div class="q-num">Question ${currentQ+1} of ${questions.length}</div>
+          <div class="q-text">${q.text}</div>
+          <div class="options">${q.options.map((opt,i)=>`<button class="option ${answers[currentQ]===i?'selected':''}" onclick="selectOption(${i})">${opt.text}</button>`).join('')}</div>
+        </div>
+        <div class="nav-btns">
+          ${currentQ>0?`<button class="btn-prev" onclick="prevQuestion()">← Back</button>`:''}
+          <button class="btn-next" onclick="nextQuestion()">${currentQ===questions.length-1?'See My Result →':'Next →'}</button>
+        </div>`;
+    }
+    function selectOption(i){
+      answers[currentQ]=i;
+      document.querySelectorAll('.option').forEach((el,idx)=>el.classList.toggle('selected',idx===i));
+    }
+    function nextQuestion(){
+      if(answers[currentQ]===null){alert('Please select an answer first! 😊');return;}
+      const sel=questions[currentQ].options[answers[currentQ]];
+      Object.entries(sel.scores).forEach(([c,p])=>{scores[c]+=p;});
+      if(currentQ<questions.length-1){currentQ++;renderQuestion();}
+      else{showResult();}
+    }
+    function prevQuestion(){
+      if(currentQ>0){
+        const prev=questions[currentQ-1].options[answers[currentQ-1]];
+        Object.entries(prev.scores).forEach(([c,p])=>{scores[c]-=p;});
+        currentQ--;renderQuestion();
+      }
+    }
+    function showResult(){
+      document.getElementById('progressFill').style.width='100%';
+      document.getElementById('quizContainer').style.display='none';
+      const top=Object.entries(scores).sort((a,b)=>b[1]-a[1])[0][0];
+      const c=courses[top];
+      document.getElementById('resultIcon').textContent=c.icon;
+      document.getElementById('resultTitle').textContent=c.title;
+      document.getElementById('resultBadge').textContent=c.badge;
+      document.getElementById('resultDesc').textContent=c.desc;
+      document.getElementById('resultLink').href=c.link;
+      document.getElementById('resultCard').style.display='block';
+    }
+    function restartQuiz(){
+      currentQ=0;scores={bsit:0,bsed:0,beed:0,bsba:0,bscrim:0,bsag:0};answers=new Array(questions.length).fill(null);
+      document.getElementById('resultCard').style.display='none';
+      document.getElementById('quizContainer').style.display='block';
+      renderQuestion();
+    }
+    renderQuestion();
+  </script>
+</body>
+</html>
