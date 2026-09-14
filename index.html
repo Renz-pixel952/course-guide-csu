@@ -1,1774 +1,1439 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Find Your Course — CSU Sanchez Mira</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --red: #8b1a1a;
-      --red-light: #b52b2b;
-      --red-soft: #fff2f2;
-      --cream: #faf7f2;
-      --white: #ffffff;
-      --dark: #171717;
-      --gray: #686868;
-      --border: #e9e1da;
-      --green: #3c7650;
-      --yellow: #f4b942;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "DM Sans", sans-serif;
-      background: var(--white);
-      color: var(--dark);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    /* =========================
-       TOP BAR
-    ========================= */
-
-    .topbar {
-      background: var(--red);
-      color: white;
-      padding: 9px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-    }
-
-    .topbar-left {
-      display: flex;
-      gap: 20px;
-    }
-
-    .topbar a {
-      color: rgba(255,255,255,.85);
-      transition: .2s;
-    }
-
-    .topbar a:hover {
-      color: white;
-    }
-
-    /* =========================
-       NAVIGATION
-    ========================= */
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-
-      border-bottom: 1px solid var(--border);
-
-      padding: 15px 6%;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--dark);
-    }
-
-    .logo-icon {
-      width: 43px;
-      height: 43px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: var(--red);
-      color: white;
-
-      border-radius: 12px;
-      font-size: 21px;
-
-      box-shadow: 0 5px 15px rgba(139,26,26,.2);
-    }
-
-    .logo-text {
-      font-family: "Playfair Display", serif;
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .logo-text span {
-      color: var(--red);
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .nav-links a {
-      color: var(--gray);
-      font-size: 14px;
-      font-weight: 600;
-      transition: .2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--red);
-    }
-
-    .nav-cta {
-      background: var(--red);
-      color: white !important;
-
-      padding: 11px 18px;
-      border-radius: 10px;
-
-      box-shadow: 0 5px 15px rgba(139,26,26,.2);
-    }
-
-    .nav-cta:hover {
-      background: var(--red-light);
-      transform: translateY(-2px);
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 680px;
-
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-
-      background:
-        radial-gradient(circle at 10% 20%, rgba(139,26,26,.08), transparent 30%),
-        var(--cream);
-    }
-
-    .hero-content {
-      padding: 90px 8%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-
-      color: var(--red);
-      font-weight: 800;
-      font-size: 12px;
-
-      letter-spacing: .12em;
-      text-transform: uppercase;
-
-      margin-bottom: 18px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 25px;
-      height: 3px;
-      background: var(--red);
-      border-radius: 10px;
-    }
-
-    .hero h1 {
-      font-family: "Playfair Display", serif;
-
-      font-size: clamp(42px, 5vw, 70px);
-      line-height: 1.05;
-
-      max-width: 650px;
-
-      margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-      color: var(--red);
-      position: relative;
-    }
-
-    .hero-description {
-      max-width: 560px;
-      color: var(--gray);
-      font-size: 16px;
-      line-height: 1.8;
-
-      margin-bottom: 25px;
-    }
-
-    .quote {
-      max-width: 570px;
-
-      background: white;
-      border: 1px solid var(--border);
-
-      border-left: 5px solid var(--red);
-
-      padding: 17px 20px;
-
-      border-radius: 0 12px 12px 0;
-
-      color: var(--gray);
-      font-size: 14px;
-      font-style: italic;
-
-      box-shadow: 0 10px 30px rgba(0,0,0,.04);
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-
-      padding: 14px 22px;
-
-      border-radius: 10px;
-
-      font-weight: 700;
-      font-size: 14px;
-
-      transition: .25s;
-    }
-
-    .btn-red {
-      background: var(--red);
-      color: white;
-
-      box-shadow: 0 8px 20px rgba(139,26,26,.22);
-    }
-
-    .btn-red:hover {
-      background: var(--red-light);
-      transform: translateY(-3px);
-    }
-
-    .btn-white {
-      background: white;
-      color: var(--red);
-
-      border: 1px solid var(--border);
-    }
-
-    .btn-white:hover {
-      border-color: var(--red);
-      transform: translateY(-3px);
-    }
-
-    /* HERO IMAGE */
-
-    .hero-image {
-      position: relative;
-      min-height: 600px;
-      overflow: hidden;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .image-placeholder {
-      height: 100%;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      background:
-        linear-gradient(135deg, #8b1a1a, #c44848);
-
-      color: white;
-      text-align: center;
-    }
-
-    .image-placeholder .icon {
-      font-size: 75px;
-      margin-bottom: 15px;
-    }
-
-    .campus-card {
-      position: absolute;
-      left: 30px;
-      bottom: 30px;
-
-      background: white;
-
-      padding: 18px 22px;
-
-      border-radius: 14px;
-
-      box-shadow: 0 15px 40px rgba(0,0,0,.2);
-
-      min-width: 230px;
-    }
-
-    .campus-card strong {
-      display: block;
-      font-size: 15px;
-    }
-
-    .campus-card span {
-      font-size: 12px;
-      color: var(--gray);
-    }
-
-    /* FLOATING DECORATIONS */
-
-    .floating {
-      position: absolute;
-      width: 55px;
-      height: 55px;
-
-      border-radius: 16px;
-
-      background: white;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      box-shadow: 0 10px 30px rgba(0,0,0,.12);
-
-      font-size: 25px;
-
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .float-one {
-      top: 80px;
-      right: 40px;
-    }
-
-    .float-two {
-      top: 180px;
-      left: 30px;
-      animation-delay: 1s;
-    }
-
-    @keyframes float {
-      0%,100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    /* =========================
-       STATS
-    ========================= */
-
-    .stats {
-      background: var(--red);
-
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-
-      color: white;
-    }
-
-    .stat {
-      padding: 25px;
-      text-align: center;
-
-      border-right: 1px solid rgba(255,255,255,.15);
-    }
-
-    .stat:last-child {
-      border-right: none;
-    }
-
-    .stat-number {
-      font-family: "Playfair Display", serif;
-      font-size: 30px;
-      font-weight: 900;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      opacity: .8;
-    }
-
-    /* =========================
-       SECTION
-    ========================= */
-
-    .section {
-      max-width: 1150px;
-      margin: auto;
-      padding: 90px 25px;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-heading h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(32px,4vw,45px);
-      margin-bottom: 10px;
-    }
-
-    .section-heading p {
-      color: var(--gray);
-      max-width: 600px;
-      margin: auto;
-    }
-
-    /* =========================
-       COURSE FILTER
-    ========================= */
-
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-
-      margin-bottom: 35px;
-    }
-
-    .filter-btn {
-      border: 1px solid var(--border);
-      background: white;
-
-      padding: 9px 17px;
-
-      border-radius: 30px;
-
-      font-family: inherit;
-      font-weight: 600;
-      font-size: 13px;
-
-      cursor: pointer;
-
-      transition: .2s;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--red);
-      color: white;
-      border-color: var(--red);
-    }
-
-    /* =========================
-       COURSE CARDS
-    ========================= */
-
-    .courses {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 20px;
-    }
-
-    .course {
-      background: white;
-
-      border: 1px solid var(--border);
-      border-radius: 18px;
-
-      overflow: hidden;
-
-      transition: .3s;
-
-      position: relative;
-    }
-
-    .course:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,.09);
-      border-color: transparent;
-    }
-
-    .course-top {
-      padding: 25px;
-
-      background: var(--cream);
-
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .course-icon {
-      width: 55px;
-      height: 55px;
-
-      background: var(--red);
-      color: white;
-
-      border-radius: 14px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-size: 25px;
-
-      flex-shrink: 0;
-    }
-
-    .course-title h3 {
-      font-size: 16px;
-      line-height: 1.3;
-    }
-
-    .course-category {
-      display: inline-block;
-
-      margin-top: 5px;
-
-      font-size: 11px;
-      font-weight: 800;
-
-      color: var(--red);
-
-      text-transform: uppercase;
-      letter-spacing: .05em;
-    }
-
-    .course-body {
-      padding: 22px;
-    }
-
-    .course-body p {
-      color: var(--gray);
-      font-size: 13px;
-      line-height: 1.7;
-
-      min-height: 88px;
-    }
-
-    .course-footer {
-      padding: 15px 22px;
-
-      border-top: 1px solid var(--border);
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .course-footer small {
-      color: var(--gray);
-      font-size: 11px;
-    }
-
-    .learn {
-      color: var(--red);
-      font-weight: 800;
-      font-size: 12px;
-    }
-
-    /* =========================
-       QUIZ
-    ========================= */
-
-    .quiz-section {
-      padding: 80px 25px;
-    }
-
-    .quiz-box {
-      max-width: 1050px;
-      margin: auto;
-
-      background:
-        radial-gradient(circle at 90% 20%, rgba(255,255,255,.15), transparent 30%),
-        var(--red);
-
-      border-radius: 25px;
-
-      padding: 60px 50px;
-
-      color: white;
-
-      text-align: center;
-
-      position: relative;
-      overflow: hidden;
-    }
-
-    .quiz-box::before {
-      content: "❓";
-      position: absolute;
-
-      font-size: 150px;
-
-      opacity: .06;
-
-      right: 30px;
-      bottom: -40px;
-    }
-
-    .quiz-icon {
-      width: 60px;
-      height: 60px;
-
-      background: rgba(255,255,255,.15);
-
-      border-radius: 18px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      margin: 0 auto 20px;
-
-      font-size: 28px;
-    }
-
-    .quiz-box h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(30px,4vw,45px);
-      margin-bottom: 12px;
-    }
-
-    .quiz-box p {
-      max-width: 580px;
-      margin: 0 auto 25px;
-
-      color: rgba(255,255,255,.8);
-    }
-
-    .quiz-box .btn {
-      background: white;
-      color: var(--red);
-    }
-
-    /* =========================
-       TIPS
-    ========================= */
-
-    .tips-section {
-      background: var(--cream);
-    }
-
-    .tips {
-      max-width: 1150px;
-      margin: auto;
-
-      padding: 90px 25px;
-    }
-
-    .tips-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 20px;
-    }
-
-    .tip {
-      background: white;
-
-      padding: 25px;
-
-      border-radius: 16px;
-
-      border: 1px solid var(--border);
-
-      transition: .25s;
-    }
-
-    .tip:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,.07);
-    }
-
-    .tip-number {
-      font-family: "Playfair Display", serif;
-
-      color: var(--red);
-
-      font-size: 30px;
-      font-weight: 900;
-
-      opacity: .25;
-
-      margin-bottom: 5px;
-    }
-
-    .tip h3 {
-      font-size: 15px;
-      margin-bottom: 8px;
-    }
-
-    .tip p {
-      color: var(--gray);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    /* =========================
-       FINAL CTA
-    ========================= */
-
-    .final-cta {
-      text-align: center;
-      padding: 90px 25px;
-    }
-
-    .final-cta h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 40px;
-      margin-bottom: 12px;
-    }
-
-    .final-cta p {
-      color: var(--gray);
-      margin-bottom: 25px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      background: #151515;
-      color: rgba(255,255,255,.65);
-
-      padding: 40px 25px;
-
-      text-align: center;
-
-      font-size: 13px;
-    }
-
-    footer strong {
-      color: white;
-    }
-
-    .footer-logo {
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-
-      color: white;
-
-      margin-bottom: 10px;
-    }
-
-    /* =========================
-       FADE ANIMATION
-    ========================= */
-
-    .fade {
-      opacity: 0;
-      transform: translateY(25px);
-
-      transition: .7s ease;
-    }
-
-    .fade.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media(max-width: 900px) {
-
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-image {
-        min-height: 420px;
-      }
-
-      .courses {
-        grid-template-columns: repeat(2,1fr);
-      }
-
-      .tips-grid {
-        grid-template-columns: repeat(2,1fr);
-      }
-
-    }
-
-    @media(max-width: 650px) {
-
-      .topbar {
-        display: none;
-      }
-
-      nav {
-        padding: 13px 20px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero-content {
-        padding: 65px 22px;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero-image {
-        min-height: 350px;
-      }
-
-      .stats {
-        grid-template-columns: repeat(2,1fr);
-      }
-
-      .stat {
-        border-bottom: 1px solid rgba(255,255,255,.15);
-      }
-
-      .courses {
-        grid-template-columns: 1fr;
-      }
-
-      .tips-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .quiz-box {
-        padding: 45px 25px;
-      }
-
-      .final-cta h2 {
-        font-size: 32px;
-      }
-
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Find Your Course — CSU Sanchez Mira</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --red: #8b0000;
+            --dark-red: #650000;
+            --light-red: #fff1f1;
+            --cream: #fffaf5;
+            --white: #ffffff;
+            --dark: #202020;
+            --gray: #666666;
+            --light-gray: #f5f5f5;
+            --border: #e8e8e8;
+            --shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--dark);
+            background: var(--cream);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 16px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--red);
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--red);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .logo-text span {
+            display: block;
+        }
+
+        .logo-title {
+            font-size: 16px;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #444;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--red);
+        }
+
+        .nav-button {
+            padding: 10px 18px;
+            background: var(--red);
+            color: white !important;
+            border-radius: 8px;
+        }
+
+        .nav-button:hover {
+            background: var(--dark-red);
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.98),
+                    rgba(255, 244, 244, 0.95)
+                );
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: auto;
+            min-height: 600px;
+            padding: 70px 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-content {
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--red);
+            background: var(--light-red);
+            border: 1px solid #f3d3d3;
+            padding: 8px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(42px, 5vw, 70px);
+            line-height: 1.08;
+            margin-bottom: 22px;
+            color: #202020;
+        }
+
+        .hero h1 span {
+            color: var(--red);
+        }
+
+        .hero-description {
+            max-width: 580px;
+            color: var(--gray);
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 22px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-red);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--red);
+            border: 1px solid #e2bebe;
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-red);
+        }
+
+        /* HERO IMAGE */
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            display: block;
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.94);
+            padding: 15px 18px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .image-label strong {
+            display: block;
+            color: var(--red);
+            font-size: 14px;
+        }
+
+        .image-label span {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        /* =========================
+           STATS
+        ========================== */
+
+        .stats {
+            background: var(--red);
+            color: white;
+        }
+
+        .stats-container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 28px 25px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+        }
+
+        .stat {
+            padding: 5px 20px;
+            border-right: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================== */
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .section-container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading .small-title {
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 40px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: var(--gray);
+        }
+
+        /* =========================
+           COURSE FILTER
+        ========================== */
+
+        .course-section {
+            background: white;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .filter-btn {
+            border: 1px solid var(--border);
+            background: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: #555;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--red);
+            border-color: var(--red);
+            color: white;
+        }
+
+        /* =========================
+           COURSE CARDS
+        ========================== */
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .course-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--red);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+            border-color: #e4caca;
+        }
+
+        .course-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .course-code {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--red);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .course-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .course-card p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .course-link {
+            color: var(--red);
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .course-link span {
+            transition: 0.3s;
+        }
+
+        .course-link:hover span {
+            transform: translateX(5px);
+        }
+
+        .course-card.hidden {
+            display: none;
+        }
+
+        /* =========================
+           QUIZ CTA
+        ========================== */
+
+        .quiz-section {
+            background: var(--light-red);
+        }
+
+        .quiz-box {
+            max-width: 950px;
+            margin: auto;
+            padding: 55px;
+            border-radius: 24px;
+            background: white;
+            border: 1px solid #efd2d2;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .quiz-box h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-box p {
+            color: var(--gray);
+            max-width: 650px;
+            margin: 0 auto 25px;
+        }
+
+        /* =========================
+           TIPS
+        ========================== */
+
+        .tips-section {
+            background: var(--cream);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .tip-number {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: var(--light-red);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .tip-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .tip-card p {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        /* =========================
+           FINAL CTA
+        ========================== */
+
+        .final-cta {
+            background: var(--red);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .final-cta p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        .final-cta .btn {
+            background: white;
+            color: var(--red);
+        }
+
+        .final-cta .btn:hover {
+            background: #f7eeee;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #1c1c1c;
+            color: white;
+            padding: 45px 25px 25px;
+        }
+
+        .footer-container {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 35px;
+        }
+
+        .footer-brand h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            color: #aaa;
+            font-size: 13px;
+            max-width: 450px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1150px;
+            margin: auto;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* =========================
+           ANIMATION
+        ========================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                padding-top: 55px;
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                height: 350px;
+            }
+
+            .course-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tips-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-container {
+                padding: 13px 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                padding: 50px 18px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .hero-image {
+                height: 280px;
+                border-radius: 18px;
+            }
+
+            section {
+                padding: 65px 18px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+                padding-bottom: 15px;
+            }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
+            .section-heading h2 {
+                font-size: 32px;
+            }
+
+            .course-grid,
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quiz-box {
+                padding: 35px 22px;
+            }
+
+            .quiz-box h2 {
+                font-size: 31px;
+            }
+
+            .final-cta h2 {
+                font-size: 34px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- =========================
-     TOP BAR
-========================= -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                <div class="logo-mark">CSU</div>
+
+                <div class="logo-text">
+                    <span class="logo-title">CSU Sanchez Mira</span>
+                    <span class="logo-subtitle">Course Guide</span>
+                </div>
+            </a>
+
+            <div class="nav-links">
+                <a href="#courses">Courses</a>
+                <a href="#tips">Tips</a>
+                <a href="quiz.html" class="nav-button">Take the Quiz</a>
+            </div>
 
-<div class="topbar">
-
-  <div class="topbar-left">
-    <a href="#">CSU Official Website</a>
-    <a href="#">Admissions</a>
-    <a href="#">Library</a>
-  </div>
-
-  <div>
-    CSU Sanchez Mira Campus — Cagayan, Philippines
-  </div>
-
-</div>
-
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
-<nav>
-
-  <a href="index.html" class="logo">
-
-    <div class="logo-icon">
-      🎓
-    </div>
-
-    <div class="logo-text">
-      CSU <span>Course Guide</span>
-    </div>
-
-  </a>
-
-
-  <ul class="nav-links">
-
-    <li>
-      <a href="#courses">Courses</a>
-    </li>
-
-    <li>
-      <a href="#tips">Tips</a>
-    </li>
-
-    <li>
-      <a href="quiz.html">Take Quiz</a>
-    </li>
-
-    <li>
-      <a href="quiz.html" class="nav-cta">
-        Find My Course →
-      </a>
-    </li>
-
-  </ul>
-
-</nav>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero">
-
-  <div class="hero-content">
-
-    <div class="eyebrow">
-      CSU Sanchez Mira Campus
-    </div>
-
-    <h1>
-      Your Future Starts With
-      <span>One Choice.</span>
-    </h1>
-
-    <p class="hero-description">
-
-      Choosing a college course can feel confusing.
-      Explore the courses available at Cagayan State University —
-      Sanchez Mira Campus and discover a path that matches your
-      interests, strengths, and dreams.
-
-    </p>
-
-    <div class="quote">
-
-      💡 <strong>Remember:</strong>
-      You don't need to have everything figured out today.
-      Start exploring and take your first step.
-
-    </div>
-
-    <div class="hero-buttons">
-
-      <a href="#courses" class="btn btn-red">
-        🚀 Explore Courses
-      </a>
-
-      <a href="quiz.html" class="btn btn-white">
-        🧠 Take the Quiz
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <!-- HERO IMAGE -->
-
-  <div class="hero-image">
-
-    <img
-      src="https://lh3.googleusercontent.com/d/1gXBoMVKGTyztbCBqEPuwtxtBnG9qln-p"
-      alt="CSU Sanchez Mira Campus"
-      onerror="this.style.display='none'; document.getElementById('campusPlaceholder').style.display='flex';"
-    >
-
-    <div
-      id="campusPlaceholder"
-      class="image-placeholder"
-      style="display:none;"
-    >
-
-      <div class="icon">🏫</div>
-
-      <h2>CSU Sanchez Mira</h2>
-
-      <p>Cagayan State University</p>
-
-    </div>
-
-
-    <div class="floating float-one">
-      💻
-    </div>
-
-    <div class="floating float-two">
-      📚
-    </div>
-
-
-    <div class="campus-card">
-
-      <strong>
-        🎓 CSU Sanchez Mira
-      </strong>
-
-      <span>
-        Quality Education • Cagayan, Philippines
-      </span>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     STATS
-========================= -->
-
-<section class="stats">
-
-  <div class="stat">
-    <div class="stat-number">6</div>
-    <div class="stat-label">Courses Offered</div>
-  </div>
-
-  <div class="stat">
-    <div class="stat-number">4</div>
-    <div class="stat-label">Years to Graduate</div>
-  </div>
-
-  <div class="stat">
-    <div class="stat-number">100%</div>
-    <div class="stat-label">Student Focused</div>
-  </div>
-
-  <div class="stat">
-    <div class="stat-number">CSU</div>
-    <div class="stat-label">State University</div>
-  </div>
-
-</section>
-
-
-<!-- =========================
-     COURSES
-========================= -->
-
-<section class="section" id="courses">
-
-  <div class="section-heading fade">
-
-    <div class="eyebrow">
-      Available Programs
-    </div>
-
-    <h2>
-      Explore Your Options
-    </h2>
-
-    <p>
-      Every course leads to different opportunities.
-      Find the one that feels right for you.
-    </p>
-
-  </div>
-
-
-  <!-- FILTER BUTTONS -->
-
-  <div class="filters">
-
-    <button class="filter-btn active" data-filter="all">
-      All
-    </button>
-
-    <button class="filter-btn" data-filter="technology">
-      💻 Technology
-    </button>
-
-    <button class="filter-btn" data-filter="education">
-      📚 Education
-    </button>
-
-    <button class="filter-btn" data-filter="business">
-      📊 Business
-    </button>
-
-    <button class="filter-btn" data-filter="justice">
-      ⚖️ Justice
-    </button>
-
-    <button class="filter-btn" data-filter="agriculture">
-      🌾 Agriculture
-    </button>
-
-  </div>
-
-
-  <div class="courses">
-
-
-    <!-- BSIT -->
-
-    <a
-      href="bsit.html"
-      class="course fade"
-      data-category="technology"
-    >
-
-      <div class="course-top">
-
-        <div class="course-icon">
-          💻
         </div>
+    </nav>
 
-        <div class="course-title">
 
-          <h3>
-            BS Information Technology
-          </h3>
+    <!-- =========================
+         HERO
+    ========================== -->
 
-          <span class="course-category">
-            Technology
-          </span>
+    <header class="hero">
+
+        <div class="hero-container">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    Cagayan State University — Sanchez Mira
+                </span>
+
+                <h1>
+                    Your Future Starts
+                    <span>With One Choice.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Explore the degree programs offered at CSU Sanchez Mira
+                    and discover the course that best matches your interests,
+                    strengths, and future goals.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#courses" class="btn btn-primary">
+                        Explore Courses
+                    </a>
+
+                    <a href="quiz.html" class="btn btn-secondary">
+                        Find My Course
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image-wrapper">
+
+                <img
+                    src="https://lh3.googleusercontent.com/p/AF1QipP8K5qKQ7sP7e7nV0K7f1sL4uP8e1K1j2vK7d2B=s1600-w1200"
+                    alt="Cagayan State University Sanchez Mira Campus"
+                    class="hero-image"
+                >
+
+                <div class="image-label">
+                    <strong>Cagayan State University</strong>
+                    <span>Sanchez Mira Campus</span>
+                </div>
+
+            </div>
 
         </div>
 
-      </div>
-
-      <div class="course-body">
-
-        <p>
-          Build websites, applications, and digital systems.
-          A great choice for students who enjoy computers,
-          coding, and solving technical problems.
-        </p>
-
-      </div>
-
-      <div class="course-footer">
-
-        <small>
-          4 Years
-        </small>
-
-        <span class="learn">
-          Learn More →
-        </span>
-
-      </div>
-
-    </a>
+    </header>
 
 
-    <!-- BSED -->
+    <!-- =========================
+         STATS
+    ========================== -->
 
-    <a
-      href="bsed.html"
-      class="course fade"
-      data-category="education"
-    >
+    <section class="stats">
 
-      <div class="course-top">
+        <div class="stats-container">
 
-        <div class="course-icon">
-          📚
-        </div>
+            <div class="stat">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Degree Programs</div>
+            </div>
 
-        <div class="course-title">
+            <div class="stat">
+                <div class="stat-number">1</div>
+                <div class="stat-label">Campus Community</div>
+            </div>
 
-          <h3>
-            Bachelor of Secondary Education
-          </h3>
-
-          <span class="course-category">
-            Education
-          </span>
+            <div class="stat">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Future Possibilities</div>
+            </div>
 
         </div>
 
-      </div>
-
-      <div class="course-body">
-
-        <p>
-          Prepare to become a high school teacher,
-          develop teaching skills, and help students
-          reach their potential.
-        </p>
-
-      </div>
-
-      <div class="course-footer">
-
-        <small>
-          4 Years
-        </small>
-
-        <span class="learn">
-          Learn More →
-        </span>
-
-      </div>
-
-    </a>
+    </section>
 
 
-    <!-- BEED -->
+    <!-- =========================
+         COURSES
+    ========================== -->
 
-    <a
-      href="beed.html"
-      class="course fade"
-      data-category="education"
-    >
+    <section class="course-section" id="courses">
 
-      <div class="course-top">
+        <div class="section-container">
 
-        <div class="course-icon">
-          🎒
+            <div class="section-heading reveal">
+
+                <div class="small-title">
+                    Choose Your Path
+                </div>
+
+                <h2>
+                    Explore Our Degree Programs
+                </h2>
+
+                <p>
+                    Learn what each program focuses on and discover
+                    which one matches your interests and career goals.
+                </p>
+
+            </div>
+
+
+            <!-- FILTER BUTTONS -->
+
+            <div class="filter-container">
+
+                <button class="filter-btn active" data-filter="all">
+                    All Courses
+                </button>
+
+                <button class="filter-btn" data-filter="technology">
+                    Technology
+                </button>
+
+                <button class="filter-btn" data-filter="education">
+                    Education
+                </button>
+
+                <button class="filter-btn" data-filter="business">
+                    Business
+                </button>
+
+                <button class="filter-btn" data-filter="public-service">
+                    Public Service
+                </button>
+
+                <button class="filter-btn" data-filter="agriculture">
+                    Agriculture
+                </button>
+
+            </div>
+
+
+            <!-- COURSE CARDS -->
+
+            <div class="course-grid">
+
+                <!-- BSIT -->
+
+                <article class="course-card reveal" data-category="technology">
+
+                    <div class="course-code">
+                        BSIT
+                    </div>
+
+                    <h3>
+                        Information Technology
+                    </h3>
+
+                    <p>
+                        Learn programming, computer networks,
+                        web development, databases, and other
+                        technology-related skills.
+                    </p>
+
+                    <a href="bsit.html" class="course-link">
+                        Explore BSIT <span>→</span>
+                    </a>
+
+                </article>
+
+
+                <!-- BSED -->
+
+                <article class="course-card reveal" data-category="education">
+
+                    <div class="course-code">
+                        BSED
+                    </div>
+
+                    <h3>
+                        Secondary Education
+                    </h3>
+
+                    <p>
+                        Prepare for a teaching career focused on
+                        educating and guiding secondary school students.
+                    </p>
+
+                    <a href="bsed.html" class="course-link">
+                        Explore BSED <span>→</span>
+                    </a>
+
+                </article>
+
+
+                <!-- BEED -->
+
+                <article class="course-card reveal" data-category="education">
+
+                    <div class="course-code">
+                        BEED
+                    </div>
+
+                    <h3>
+                        Elementary Education
+                    </h3>
+
+                    <p>
+                        Develop the knowledge and skills needed to
+                        teach and support young elementary learners.
+                    </p>
+
+                    <a href="beed.html" class="course-link">
+                        Explore BEED <span>→</span>
+                    </a>
+
+                </article>
+
+
+                <!-- BSBA -->
+
+                <article class="course-card reveal" data-category="business">
+
+                    <div class="course-code">
+                        BSBA
+                    </div>
+
+                    <h3>
+                        Business Administration
+                    </h3>
+
+                    <p>
+                        Study business management, entrepreneurship,
+                        marketing, finance, and organizational skills.
+                    </p>
+
+                    <a href="bsba.html" class="course-link">
+                        Explore BSBA <span>→</span>
+                    </a>
+
+                </article>
+
+
+                <!-- BS CRIM -->
+
+                <article class="course-card reveal" data-category="public-service">
+
+                    <div class="course-code">
+                        BS CRIM
+                    </div>
+
+                    <h3>
+                        Criminology
+                    </h3>
+
+                    <p>
+                        Learn about law enforcement, criminal justice,
+                        public safety, and crime prevention.
+                    </p>
+
+                    <a href="bscrim.html" class="course-link">
+                        Explore Criminology <span>→</span>
+                    </a>
+
+                </article>
+
+
+                <!-- BS AGRICULTURE -->
+
+                <article class="course-card reveal" data-category="agriculture">
+
+                    <div class="course-code">
+                        BS AGRICULTURE
+                    </div>
+
+                    <h3>
+                        Agriculture
+                    </h3>
+
+                    <p>
+                        Explore modern farming, crop production,
+                        agricultural technology, and sustainable practices.
+                    </p>
+
+                    <a href="bsag.html" class="course-link">
+                        Explore Agriculture <span>→</span>
+                    </a>
+
+                </article>
+
+            </div>
+
         </div>
 
-        <div class="course-title">
-
-          <h3>
-            Bachelor of Elementary Education
-          </h3>
-
-          <span class="course-category">
-            Education
-          </span>
-
-        </div>
-
-      </div>
-
-      <div class="course-body">
-
-        <p>
-          Learn how to teach and inspire young learners
-          while helping build the foundation of their
-          education.
-        </p>
-
-      </div>
-
-      <div class="course-footer">
-
-        <small>
-          4 Years
-        </small>
-
-        <span class="learn">
-          Learn More →
-        </span>
-
-      </div>
-
-    </a>
+    </section>
 
 
-    <!-- BSBA -->
+    <!-- =========================
+         QUIZ
+    ========================== -->
 
-    <a
-      href="bsba.html"
-      class="course fade"
-      data-category="business"
-    >
+    <section class="quiz-section">
 
-      <div class="course-top">
+        <div class="quiz-box reveal">
 
-        <div class="course-icon">
-          📊
-        </div>
+            <div class="section-heading" style="margin-bottom: 20px;">
 
-        <div class="course-title">
+                <div class="small-title">
+                    Not Sure Yet?
+                </div>
 
-          <h3>
-            BS Business Administration
-          </h3>
+                <h2>
+                    Let Us Help You Choose
+                </h2>
 
-          <span class="course-category">
-            Business
-          </span>
+                <p>
+                    Answer a few simple questions about your interests
+                    and strengths to get a course recommendation.
+                </p>
+
+            </div>
+
+            <a href="quiz.html" class="btn btn-primary">
+                Start Course Quiz
+            </a>
 
         </div>
 
-      </div>
-
-      <div class="course-body">
-
-        <p>
-          Learn business management, leadership,
-          marketing, and decision-making for the
-          world of commerce.
-        </p>
-
-      </div>
-
-      <div class="course-footer">
-
-        <small>
-          4 Years
-        </small>
-
-        <span class="learn">
-          Learn More →
-        </span>
-
-      </div>
-
-    </a>
+    </section>
 
 
-    <!-- CRIMINOLOGY -->
+    <!-- =========================
+         TIPS
+    ========================== -->
 
-    <a
-      href="bscrim.html"
-      class="course fade"
-      data-category="justice"
-    >
+    <section class="tips-section" id="tips">
 
-      <div class="course-top">
+        <div class="section-container">
 
-        <div class="course-icon">
-          ⚖️
+            <div class="section-heading reveal">
+
+                <div class="small-title">
+                    Before You Decide
+                </div>
+
+                <h2>
+                    Things to Consider
+                </h2>
+
+                <p>
+                    Choosing a course is an important decision.
+                    Think about these factors before making your choice.
+                </p>
+
+            </div>
+
+
+            <div class="tips-grid">
+
+                <div class="tip-card reveal">
+
+                    <div class="tip-number">01</div>
+
+                    <h3>
+                        Know Your Interests
+                    </h3>
+
+                    <p>
+                        Think about the subjects, activities,
+                        and topics that naturally interest you.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card reveal">
+
+                    <div class="tip-number">02</div>
+
+                    <h3>
+                        Consider Your Strengths
+                    </h3>
+
+                    <p>
+                        Identify the skills you already have and
+                        the areas where you enjoy learning.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card reveal">
+
+                    <div class="tip-number">03</div>
+
+                    <h3>
+                        Think About Your Career
+                    </h3>
+
+                    <p>
+                        Consider what type of career or profession
+                        you would like to pursue in the future.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card reveal">
+
+                    <div class="tip-number">04</div>
+
+                    <h3>
+                        Research the Program
+                    </h3>
+
+                    <p>
+                        Learn about the subjects, requirements,
+                        activities, and possible careers of the course.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card reveal">
+
+                    <div class="tip-number">05</div>
+
+                    <h3>
+                        Ask for Advice
+                    </h3>
+
+                    <p>
+                        Talk with teachers, family members,
+                        students, and professionals when possible.
+                    </p>
+
+                </div>
+
+
+                <div class="tip-card reveal">
+
+                    <div class="tip-number">06</div>
+
+                    <h3>
+                        Choose With Confidence
+                    </h3>
+
+                    <p>
+                        Take time to think about your decision
+                        and choose a path that fits your goals.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="course-title">
-
-          <h3>
-            BS Criminology
-          </h3>
-
-          <span class="course-category">
-            Law & Justice
-          </span>
-
-        </div>
-
-      </div>
-
-      <div class="course-body">
-
-        <p>
-          Study crime, law enforcement, public safety,
-          and criminal justice for a career dedicated
-          to serving and protecting communities.
-        </p>
-
-      </div>
-
-      <div class="course-footer">
-
-        <small>
-          4 Years
-        </small>
-
-        <span class="learn">
-          Learn More →
-        </span>
-
-      </div>
-
-    </a>
+    </section>
 
 
-    <!-- AGRICULTURE -->
+    <!-- =========================
+         FINAL CTA
+    ========================== -->
 
-    <a
-      href="bsag.html"
-      class="course fade"
-      data-category="agriculture"
-    >
+    <section class="final-cta">
 
-      <div class="course-top">
+        <div class="section-container">
 
-        <div class="course-icon">
-          🌾
-        </div>
+            <h2>
+                Ready to Find Your Path?
+            </h2>
 
-        <div class="course-title">
+            <p>
+                Explore the available programs or take our short
+                course quiz to help you decide.
+            </p>
 
-          <h3>
-            BS Agriculture
-          </h3>
-
-          <span class="course-category">
-            Agriculture
-          </span>
+            <a href="quiz.html" class="btn">
+                Take the Course Quiz
+            </a>
 
         </div>
 
-      </div>
+    </section>
 
-      <div class="course-body">
 
-        <p>
-          Explore modern farming, crop production,
-          agricultural technology, and sustainable
-          practices for rural communities.
-        </p>
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-      </div>
+    <footer>
 
-      <div class="course-footer">
+        <div class="footer-container">
 
-        <small>
-          4 Years
-        </small>
+            <div class="footer-brand">
 
-        <span class="learn">
-          Learn More →
-        </span>
+                <h3>
+                    CSU Sanchez Mira
+                </h3>
 
-      </div>
+                <p>
+                    A student-friendly guide designed to help
+                    future CSU students explore their academic
+                    options and make informed course decisions.
+                </p>
 
-    </a>
+            </div>
 
 
-  </div>
+            <div class="footer-column">
 
-</section>
+                <h4>
+                    Programs
+                </h4>
 
+                <a href="bsit.html">BSIT</a>
+                <a href="bsed.html">BSED</a>
+                <a href="beed.html">BEED</a>
 
-<!-- =========================
-     QUIZ
-========================= -->
+            </div>
 
-<section class="quiz-section">
 
-  <div class="quiz-box fade">
+            <div class="footer-column">
 
-    <div class="quiz-icon">
-      🧠
-    </div>
+                <h4>
+                    More Programs
+                </h4>
 
-    <h2>
-      Still Can't Decide?
-    </h2>
+                <a href="bsba.html">BSBA</a>
+                <a href="bscrim.html">BS Criminology</a>
+                <a href="bsag.html">BS Agriculture</a>
 
-    <p>
-      Take our quick course finder quiz!
-      Answer a few simple questions about your
-      interests, personality, and goals.
-    </p>
+            </div>
 
-    <a href="quiz.html" class="btn">
-      Find My Course →
-    </a>
+        </div>
 
-  </div>
 
-</section>
+        <div class="copyright">
+            © 2026 CSU Sanchez Mira Course Guide. Student Project.
+        </div>
 
+    </footer>
 
-<!-- =========================
-     TIPS
-========================= -->
 
-<section class="tips-section" id="tips">
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
-  <div class="tips">
+    <script>
 
-    <div class="section-heading fade">
+        /* =========================
+           COURSE FILTER
+        ========================== */
 
-      <div class="eyebrow">
-        Student Advice
-      </div>
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const courseCards = document.querySelectorAll(".course-card");
 
-      <h2>
-        6 Tips Before Choosing
-      </h2>
+        filterButtons.forEach(button => {
 
-      <p>
-        Choosing a course is a big decision.
-        Here are some simple things to consider.
-      </p>
+            button.addEventListener("click", () => {
 
-    </div>
+                const filter = button.dataset.filter;
 
+                filterButtons.forEach(btn => {
+                    btn.classList.remove("active");
+                });
 
-    <div class="tips-grid">
+                button.classList.add("active");
 
+                courseCards.forEach(card => {
 
-      <div class="tip fade">
+                    const category = card.dataset.category;
 
-        <div class="tip-number">01</div>
+                    if (filter === "all" || category === filter) {
+                        card.classList.remove("hidden");
+                    } else {
+                        card.classList.add("hidden");
+                    }
 
-        <h3>
-          ❤️ Know Your Interests
-        </h3>
+                });
 
-        <p>
-          Think about the subjects and activities
-          that genuinely make you excited to learn.
-        </p>
+            });
 
-      </div>
+        });
 
 
-      <div class="tip fade">
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
 
-        <div class="tip-number">02</div>
+        const revealElements =
+            document.querySelectorAll(".reveal");
 
-        <h3>
-          💪 Know Your Strengths
-        </h3>
+        const observer =
+            new IntersectionObserver(
+                (entries, observer) => {
 
-        <p>
-          Consider what you're naturally good at
-          and what skills you want to develop.
-        </p>
+                    entries.forEach(entry => {
 
-      </div>
+                        if (entry.isIntersecting) {
 
+                            entry.target.classList.add("visible");
 
-      <div class="tip fade">
+                            observer.unobserve(entry.target);
 
-        <div class="tip-number">03</div>
+                        }
 
-        <h3>
-          💼 Research Careers
-        </h3>
+                    });
 
-        <p>
-          Look at possible jobs and career paths
-          connected to each course.
-        </p>
+                },
+                {
+                    threshold: 0.12
+                }
+            );
 
-      </div>
 
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
 
-      <div class="tip fade">
-
-        <div class="tip-number">04</div>
-
-        <h3>
-          🗣️ Ask Other People
-        </h3>
-
-        <p>
-          Talk to students, teachers, graduates,
-          and professionals about their experiences.
-        </p>
-
-      </div>
-
-
-      <div class="tip fade">
-
-        <div class="tip-number">05</div>
-
-        <h3>
-          🔄 Don't Be Afraid
-        </h3>
-
-        <p>
-          Your first decision doesn't necessarily
-          determine your entire future.
-        </p>
-
-      </div>
-
-
-      <div class="tip fade">
-
-        <div class="tip-number">06</div>
-
-        <h3>
-          🌟 Trust Yourself
-        </h3>
-
-        <p>
-          After doing your research, believe in
-          yourself and take the next step.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FINAL CTA
-========================= -->
-
-<section class="final-cta">
-
-  <div class="fade">
-
-    <div class="eyebrow">
-      Your Journey Starts Here
-    </div>
-
-    <h2>
-      Ready to Find Your Course?
-    </h2>
-
-    <p>
-      Explore your options or let our quiz help you decide.
-    </p>
-
-    <a href="quiz.html" class="btn btn-red">
-      🧭 Start Course Finder
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-  <div class="footer-logo">
-    CSU Course Guide
-  </div>
-
-  <p>
-    Cagayan State University — Sanchez Mira Campus 🇵🇭
-  </p>
-
-  <p style="margin-top:8px;">
-    Made by <strong>Renz</strong> — BSIT Student
-  </p>
-
-</footer>
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
-<script>
-
-  /* =========================
-     FADE-IN ANIMATION
-  ========================= */
-
-  const fadeElements =
-    document.querySelectorAll(".fade");
-
-  const observer =
-    new IntersectionObserver((entries) => {
-
-      entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-          entry.target.classList.add("show");
-
-        }
-
-      });
-
-    }, {
-      threshold: 0.1
-    });
-
-
-  fadeElements.forEach(element => {
-    observer.observe(element);
-  });
-
-
-  /* =========================
-     COURSE FILTER
-  ========================= */
-
-  const filterButtons =
-    document.querySelectorAll(".filter-btn");
-
-  const courses =
-    document.querySelectorAll(".course");
-
-
-  filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      /* Remove active state */
-
-      filterButtons.forEach(btn => {
-        btn.classList.remove("active");
-      });
-
-      /* Activate clicked button */
-
-      button.classList.add("active");
-
-
-      const filter =
-        button.dataset.filter;
-
-
-      courses.forEach(course => {
-
-        if (
-          filter === "all" ||
-          course.dataset.category === filter
-        ) {
-
-          course.style.display = "flex";
-
-          setTimeout(() => {
-            course.style.opacity = "1";
-            course.style.transform = "translateY(0)";
-          }, 50);
-
-        } else {
-
-          course.style.display = "none";
-
-        }
-
-      });
-
-    });
-
-  });
-
-</script>
+    </script>
 
 </body>
 </html>
-```
