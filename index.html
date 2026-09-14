@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
     <title>CSU Sanchez Mira Campus - Course Guide</title>
 
     <meta name="description"
-          content="Course Guide for Cagayan State University - Sanchez Mira Campus">
+          content="CSU Sanchez Mira Campus undergraduate degree programs and course guide.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,10 +17,6 @@
           rel="stylesheet">
 
     <style>
-
-        /* =========================================================
-           RESET
-        ========================================================= */
 
         * {
             margin: 0;
@@ -33,14 +30,9 @@
 
         body {
             font-family: "DM Sans", Arial, sans-serif;
-            color: #252525;
-            background: #ffffff;
+            color: #262626;
+            background: #fff;
             line-height: 1.6;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
         }
 
         a {
@@ -58,83 +50,68 @@
         }
 
 
-        /* =========================================================
-           TOP BAR
-        ========================================================= */
+        /* TOP BAR */
 
         .top-bar {
             background: #650000;
-            color: #ffffff;
+            color: white;
             font-size: 13px;
         }
 
         .top-bar-container {
             width: min(1200px, 92%);
-            margin: auto;
             min-height: 40px;
+            margin: auto;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
         }
 
         .campus-name {
             font-weight: 600;
-            letter-spacing: 0.2px;
         }
 
         .live-clock {
             font-weight: 700;
             white-space: nowrap;
-            letter-spacing: 0.3px;
         }
 
         .clock-separator {
-            opacity: 0.55;
+            opacity: .55;
             margin: 0 6px;
         }
 
 
-        /* =========================================================
-           MAIN HEADER
-        ========================================================= */
+        /* HEADER */
 
         .main-header {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e5e5;
+            background: white;
+            border-bottom: 1px solid #e4e4e4;
         }
 
         .header-container {
             width: min(1200px, 92%);
-            margin: auto;
-
             min-height: 92px;
+            margin: auto;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 30px;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 15px;
         }
 
         .brand-logo {
-            width: 66px;
-            height: 66px;
-
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #650000,
-                    #8b0000
-                );
+            background: linear-gradient(145deg, #650000, #8b0000);
 
             color: white;
 
@@ -142,45 +119,38 @@
             align-items: center;
             justify-content: center;
 
-            font-size: 20px;
             font-weight: 700;
+            font-size: 19px;
 
-            border: 4px solid #eeeeee;
-
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            border: 4px solid #eee;
         }
 
         .brand-text h1 {
             font-family: "Playfair Display", Georgia, serif;
-            font-size: 23px;
-            line-height: 1.2;
+            font-size: 22px;
             color: #650000;
+            line-height: 1.2;
         }
 
         .brand-text p {
-            font-size: 13px;
-            color: #666666;
+            font-size: 12px;
+            color: #777;
             margin-top: 4px;
         }
 
 
-        /* =========================================================
-           NAVIGATION
-        ========================================================= */
+        /* NAVIGATION */
 
         .main-nav {
             background: #720000;
-            color: #ffffff;
+            color: white;
         }
 
         .nav-container {
             width: min(1200px, 92%);
             margin: auto;
 
-            min-height: 52px;
-
             display: flex;
-            align-items: center;
             justify-content: center;
         }
 
@@ -188,39 +158,32 @@
             list-style: none;
 
             display: flex;
-            align-items: center;
-            justify-content: center;
-
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-links a {
             display: block;
-
-            padding: 16px 20px;
+            padding: 15px 20px;
 
             font-size: 13px;
             font-weight: 700;
 
-            letter-spacing: 0.4px;
+            letter-spacing: .4px;
 
-            transition: background 0.2s ease;
+            transition: .2s;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            background: #4d0000;
+            background: #4e0000;
         }
 
 
-        /* =========================================================
-           HERO
-        ========================================================= */
+        /* HERO */
 
         .hero {
-            min-height: 500px;
-
-            position: relative;
+            min-height: 510px;
 
             display: flex;
             align-items: center;
@@ -228,11 +191,11 @@
             background:
                 linear-gradient(
                     90deg,
-                    rgba(30, 0, 0, 0.82) 0%,
-                    rgba(55, 0, 0, 0.68) 42%,
-                    rgba(0, 0, 0, 0.25) 100%
+                    rgba(35,0,0,.84),
+                    rgba(70,0,0,.58),
+                    rgba(0,0,0,.20)
                 ),
-                url("./campus.jpeg?v=2");
+                url("./campus.jpeg?v=3");
 
             background-size: cover;
             background-position: center;
@@ -241,10 +204,8 @@
         .hero-content {
             width: min(1200px, 92%);
             margin: auto;
-
-            color: #ffffff;
-
-            padding: 90px 0;
+            color: white;
+            padding: 80px 0;
         }
 
         .hero-label {
@@ -252,13 +213,11 @@
 
             padding: 7px 13px;
 
-            border: 1px solid rgba(255,255,255,0.45);
-
-            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,.45);
+            background: rgba(255,255,255,.1);
 
             font-size: 12px;
             font-weight: 700;
-
             letter-spacing: 1px;
             text-transform: uppercase;
 
@@ -266,11 +225,11 @@
         }
 
         .hero h2 {
-            max-width: 760px;
+            max-width: 800px;
 
             font-family: "Playfair Display", Georgia, serif;
 
-            font-size: clamp(38px, 6vw, 68px);
+            font-size: clamp(38px, 6vw, 65px);
 
             line-height: 1.08;
 
@@ -280,11 +239,11 @@
         .hero p {
             max-width: 700px;
 
-            font-size: 18px;
+            color: rgba(255,255,255,.9);
 
-            color: rgba(255,255,255,0.92);
+            font-size: 17px;
 
-            margin-bottom: 32px;
+            margin-bottom: 30px;
         }
 
         .hero-buttons {
@@ -294,28 +253,21 @@
         }
 
         .btn {
-            display: inline-flex;
+            min-height: 46px;
+            padding: 0 22px;
 
+            display: inline-flex;
             align-items: center;
             justify-content: center;
 
-            min-height: 46px;
-
-            padding: 0 22px;
-
             border-radius: 4px;
 
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
 
             border: 1px solid transparent;
 
-            cursor: pointer;
-
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                color 0.2s ease;
+            transition: .2s;
         }
 
         .btn:hover {
@@ -323,287 +275,231 @@
         }
 
         .btn-primary {
-            background: #ffffff;
+            background: white;
             color: #650000;
-        }
-
-        .btn-primary:hover {
-            background: #eeeeee;
         }
 
         .btn-outline {
-            border-color: rgba(255,255,255,0.7);
-            color: #ffffff;
             background: transparent;
+            color: white;
+            border-color: rgba(255,255,255,.7);
         }
 
         .btn-outline:hover {
-            background: #ffffff;
+            background: white;
             color: #650000;
         }
 
 
-        /* =========================================================
-           QUICK LINKS
-        ========================================================= */
+        /* QUICK LINKS */
 
         .quick-links {
             background: #f7f7f7;
-
-            border-bottom: 1px solid #e5e5e5;
         }
 
         .quick-grid {
             display: grid;
-
             grid-template-columns: repeat(4, 1fr);
-
             gap: 1px;
-
-            background: #dddddd;
+            background: #ddd;
         }
 
         .quick-item {
-            background: #ffffff;
-
-            padding: 25px 20px;
-
+            background: white;
             text-align: center;
-
-            transition:
-                background 0.2s ease,
-                transform 0.2s ease;
+            padding: 25px 18px;
+            transition: .2s;
         }
 
         .quick-item:hover {
-            background: #faf3f3;
+            background: #faf2f2;
         }
 
         .quick-number {
             color: #650000;
-
             font-size: 12px;
             font-weight: 700;
-
             letter-spacing: 1px;
-
-            margin-bottom: 7px;
         }
 
         .quick-item h3 {
             font-size: 15px;
-
-            color: #333333;
-
-            margin-bottom: 5px;
+            margin: 5px 0;
         }
 
         .quick-item p {
             font-size: 12px;
-            color: #777777;
+            color: #777;
         }
 
 
-        /* =========================================================
-           SECTION COMMON
-        ========================================================= */
-
-        section {
-            scroll-margin-top: 20px;
-        }
+        /* GENERAL SECTIONS */
 
         .section {
-            padding: 85px 0;
+            padding: 80px 0;
         }
 
         .section-header {
+            max-width: 760px;
             text-align: center;
-
-            max-width: 750px;
-
             margin: 0 auto 45px;
         }
 
         .section-label {
             color: #8b0000;
-
             font-size: 12px;
-
             font-weight: 700;
-
-            text-transform: uppercase;
-
             letter-spacing: 1.5px;
-
-            margin-bottom: 10px;
+            text-transform: uppercase;
+            margin-bottom: 9px;
         }
 
         .section-title {
             font-family: "Playfair Display", Georgia, serif;
-
-            color: #2b2b2b;
-
             font-size: clamp(30px, 4vw, 44px);
-
             line-height: 1.2;
-
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .section-description {
-            color: #6d6d6d;
-
+            color: #707070;
             font-size: 15px;
         }
 
 
-        /* =========================================================
-           COURSE SECTION
-        ========================================================= */
+        /* COURSE SECTION */
 
         .courses-section {
-            background: #ffffff;
+            background: white;
+        }
+
+        .college-heading {
+            margin: 45px 0 20px;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .college-heading::after {
+            content: "";
+            height: 1px;
+            background: #ddd;
+            flex: 1;
+        }
+
+        .college-heading h3 {
+            color: #650000;
+            font-size: 18px;
+            white-space: nowrap;
         }
 
         .filter-buttons {
             display: flex;
-
             justify-content: center;
-
             flex-wrap: wrap;
-
             gap: 8px;
-
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .filter-btn {
-            background: #ffffff;
+            padding: 9px 15px;
 
             border: 1px solid #d5d5d5;
-
-            color: #555555;
-
-            padding: 10px 17px;
+            background: white;
+            color: #555;
 
             border-radius: 3px;
 
             cursor: pointer;
 
-            font-size: 12px;
-
+            font-size: 11px;
             font-weight: 700;
 
             text-transform: uppercase;
-
-            letter-spacing: 0.4px;
-
-            transition: 0.2s ease;
+            letter-spacing: .4px;
         }
 
         .filter-btn:hover,
         .filter-btn.active {
             background: #650000;
             border-color: #650000;
-            color: #ffffff;
+            color: white;
         }
 
         .course-grid {
             display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
-            gap: 22px;
+            gap: 20px;
         }
 
         .course-card {
-            position: relative;
+            background: white;
 
-            background: #ffffff;
-
-            border: 1px solid #e3e3e3;
-
+            border: 1px solid #e1e1e1;
             border-top: 4px solid #650000;
 
-            padding: 28px;
+            padding: 25px;
 
-            min-height: 280px;
+            min-height: 275px;
 
             display: flex;
-
             flex-direction: column;
 
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 18px rgba(0,0,0,.045);
 
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
+            transition: .2s;
         }
 
         .course-card:hover {
-            transform: translateY(-5px);
-
-            box-shadow: 0 12px 30px rgba(0,0,0,0.09);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0,0,0,.08);
         }
 
         .course-code {
             color: #8b0000;
-
-            font-size: 12px;
-
+            font-size: 11px;
             font-weight: 700;
-
             letter-spacing: 1px;
-
-            margin-bottom: 10px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
         }
 
         .course-card h3 {
             font-family: "Playfair Display", Georgia, serif;
-
-            font-size: 25px;
-
-            color: #272727;
-
-            line-height: 1.2;
-
-            margin-bottom: 12px;
+            font-size: 22px;
+            line-height: 1.25;
+            margin-bottom: 10px;
         }
 
         .course-card p {
-            color: #666666;
-
-            font-size: 14px;
-
-            line-height: 1.7;
-
+            color: #666;
+            font-size: 13px;
             flex: 1;
         }
 
-        .course-category {
-            margin-top: 20px;
+        .course-major {
+            margin-top: 15px;
+            padding-top: 12px;
 
-            margin-bottom: 18px;
+            border-top: 1px solid #eee;
 
-            color: #777777;
-
-            font-size: 11px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.7px;
+            color: #555;
+            font-size: 12px;
         }
 
-        .course-link {
+        .course-major strong {
             color: #650000;
-
-            font-size: 13px;
-
-            font-weight: 700;
         }
 
-        .course-link:hover {
-            text-decoration: underline;
+        .course-college {
+            margin-top: 15px;
+
+            color: #888;
+
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
         }
 
         .course-card.hidden {
@@ -611,9 +507,7 @@
         }
 
 
-        /* =========================================================
-           ABOUT
-        ========================================================= */
+        /* ABOUT */
 
         .about-section {
             background: #f7f7f7;
@@ -621,214 +515,131 @@
 
         .about-grid {
             display: grid;
-
             grid-template-columns: 1fr 1fr;
-
             gap: 55px;
-
             align-items: center;
         }
 
         .about-image {
-            position: relative;
-
-            min-height: 420px;
-
+            min-height: 410px;
             overflow: hidden;
-
-            border: 8px solid #ffffff;
-
-            box-shadow: 0 10px 35px rgba(0,0,0,0.10);
+            border: 8px solid white;
+            box-shadow: 0 10px 35px rgba(0,0,0,.1);
         }
 
         .about-image img {
             width: 100%;
-            height: 100%;
-
-            min-height: 404px;
-
+            height: 410px;
             object-fit: cover;
-        }
-
-        .about-content .section-label {
-            text-align: left;
         }
 
         .about-content h2 {
             font-family: "Playfair Display", Georgia, serif;
-
-            font-size: 40px;
-
+            font-size: 39px;
             line-height: 1.2;
-
             margin-bottom: 18px;
         }
 
         .about-content p {
-            color: #666666;
-
-            font-size: 15px;
-
-            margin-bottom: 18px;
-        }
-
-        .about-list {
-            list-style: none;
-
-            margin: 25px 0;
-        }
-
-        .about-list li {
-            padding: 10px 0;
-
-            border-bottom: 1px solid #dddddd;
-
+            color: #666;
             font-size: 14px;
-
-            color: #555555;
-        }
-
-        .about-list strong {
-            color: #650000;
+            margin-bottom: 15px;
         }
 
 
-        /* =========================================================
-           QUIZ SECTION
-        ========================================================= */
+        /* QUIZ */
 
         .quiz-section {
             background: #650000;
-
-            color: #ffffff;
+            color: white;
         }
 
         .quiz-content {
             max-width: 850px;
-
             margin: auto;
-
             text-align: center;
         }
 
         .quiz-content .section-label {
-            color: #f1caca;
+            color: #eababa;
         }
 
         .quiz-content h2 {
             font-family: "Playfair Display", Georgia, serif;
-
             font-size: clamp(32px, 5vw, 48px);
-
             line-height: 1.2;
-
             margin-bottom: 15px;
         }
 
         .quiz-content p {
-            color: rgba(255,255,255,0.84);
-
-            font-size: 16px;
-
-            margin-bottom: 28px;
+            color: rgba(255,255,255,.84);
+            margin-bottom: 25px;
         }
 
 
-        /* =========================================================
-           STUDENT GUIDE
-        ========================================================= */
-
-        .guide-section {
-            background: #ffffff;
-        }
+        /* GUIDE */
 
         .guide-grid {
             display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
-            gap: 22px;
+            gap: 20px;
         }
 
         .guide-card {
-            border: 1px solid #e3e3e3;
-
-            padding: 30px;
-
-            background: #ffffff;
+            border: 1px solid #e2e2e2;
+            padding: 28px;
         }
 
         .guide-number {
             color: #650000;
-
-            font-size: 32px;
-
+            font-size: 30px;
             font-weight: 700;
-
-            line-height: 1;
-
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .guide-card h3 {
-            font-size: 18px;
-
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .guide-card p {
-            color: #6b6b6b;
-
-            font-size: 14px;
+            color: #6d6d6d;
+            font-size: 13px;
         }
 
 
-        /* =========================================================
-           FOOTER
-        ========================================================= */
+        /* FOOTER */
 
         footer {
             background: #260000;
-
-            color: #ffffff;
+            color: white;
         }
 
         .footer-main {
-            padding: 60px 0 40px;
+            padding: 55px 0 35px;
         }
 
         .footer-grid {
             display: grid;
-
             grid-template-columns: 1.5fr 1fr 1fr;
-
-            gap: 50px;
+            gap: 45px;
         }
 
         .footer-brand h2 {
             font-family: "Playfair Display", Georgia, serif;
-
-            font-size: 25px;
-
-            margin-bottom: 12px;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
         .footer-brand p {
-            color: rgba(255,255,255,0.68);
-
+            color: rgba(255,255,255,.65);
             font-size: 13px;
-
-            max-width: 480px;
         }
 
         .footer-column h3 {
-            font-size: 14px;
-
-            margin-bottom: 18px;
-
+            font-size: 13px;
             text-transform: uppercase;
-
-            letter-spacing: 0.8px;
+            letter-spacing: .7px;
+            margin-bottom: 15px;
         }
 
         .footer-column ul {
@@ -836,27 +647,23 @@
         }
 
         .footer-column li {
-            margin-bottom: 9px;
+            margin-bottom: 7px;
         }
 
         .footer-column a {
-            color: rgba(255,255,255,0.68);
-
-            font-size: 13px;
+            color: rgba(255,255,255,.65);
+            font-size: 12px;
         }
 
         .footer-column a:hover {
-            color: #ffffff;
+            color: white;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.12);
-
-            padding: 20px 0;
-
-            color: rgba(255,255,255,0.55);
-
-            font-size: 12px;
+            border-top: 1px solid rgba(255,255,255,.12);
+            padding: 18px 0;
+            color: rgba(255,255,255,.5);
+            font-size: 11px;
         }
 
         .footer-bottom-container {
@@ -864,39 +671,26 @@
             margin: auto;
 
             display: flex;
-
             justify-content: space-between;
-
             gap: 20px;
         }
 
 
-        /* =========================================================
-           MOBILE MENU BUTTON
-        ========================================================= */
+        /* MOBILE */
 
         .mobile-menu-button {
             display: none;
 
             background: #650000;
-
-            color: #ffffff;
-
+            color: white;
             border: none;
 
             padding: 10px 14px;
 
             cursor: pointer;
 
-            font-size: 14px;
-
             font-weight: 700;
         }
-
-
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
 
         @media (max-width: 950px) {
 
@@ -919,15 +713,12 @@
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
         }
-
 
         @media (max-width: 700px) {
 
             .top-bar-container {
                 justify-content: center;
-                text-align: center;
             }
 
             .campus-name {
@@ -938,18 +729,18 @@
                 min-height: 78px;
             }
 
+            .brand-logo {
+                width: 53px;
+                height: 53px;
+                font-size: 16px;
+            }
+
             .brand-text h1 {
-                font-size: 18px;
+                font-size: 17px;
             }
 
             .brand-text p {
-                font-size: 11px;
-            }
-
-            .brand-logo {
-                width: 54px;
-                height: 54px;
-                font-size: 16px;
+                font-size: 10px;
             }
 
             .mobile-menu-button {
@@ -957,14 +748,12 @@
             }
 
             .nav-container {
-                min-height: 0;
+                width: 100%;
             }
 
             .nav-links {
                 display: none;
-
                 width: 100%;
-
                 flex-direction: column;
             }
 
@@ -977,26 +766,12 @@
                 text-align: center;
             }
 
-            .nav-links a {
-                padding: 13px;
-            }
-
             .hero {
                 min-height: 520px;
-
-                background-position: 60% center;
-            }
-
-            .hero-content {
-                padding: 65px 0;
             }
 
             .hero h2 {
                 font-size: 40px;
-            }
-
-            .hero p {
-                font-size: 15px;
             }
 
             .course-grid {
@@ -1015,9 +790,7 @@
                 flex-direction: column;
                 text-align: center;
             }
-
         }
-
 
         @media (max-width: 450px) {
 
@@ -1038,7 +811,7 @@
             }
 
             .section {
-                padding: 65px 0;
+                padding: 60px 0;
             }
 
         }
@@ -1046,28 +819,1154 @@
     </style>
 </head>
 
-
 <body>
 
 
-    <!-- =========================================================
-         TOP BAR
-    ========================================================== -->
+<!-- TOP BAR -->
 
-    <div class="top-bar">
+<div class="top-bar">
 
-        <div class="top-bar-container">
+    <div class="top-bar-container">
 
-            <div class="campus-name">
-                Cagayan State University — Sanchez Mira Campus
+        <div class="campus-name">
+            Cagayan State University — Sanchez Mira Campus
+        </div>
+
+        <div class="live-clock">
+
+            <span id="liveDate">
+                Loading...
+            </span>
+
+            <span class="clock-separator">|</span>
+
+            <span id="liveTime">
+                Loading...
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- HEADER -->
+
+<header class="main-header">
+
+    <div class="header-container">
+
+        <a href="index.html" class="brand">
+
+            <div class="brand-logo">
+                CSU
             </div>
 
-            <div class="live-clock">
-                <span id="liveDate">Loading...</span>
+            <div class="brand-text">
 
-                <span class="clock-separator">|</span>
+                <h1>
+                    Cagayan State University
+                </h1>
 
-                <span id="liveTime">Loading...</span>
+                <p>
+                    Sanchez Mira Campus • Course Guide
+                </p>
+
+            </div>
+
+        </a>
+
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            type="button">
+
+            MENU
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<nav class="main-nav">
+
+    <div class="nav-container">
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home" class="active">
+                    HOME
+                </a>
+            </li>
+
+            <li>
+                <a href="#courses">
+                    COURSES
+                </a>
+            </li>
+
+            <li>
+                <a href="#about">
+                    ABOUT
+                </a>
+            </li>
+
+            <li>
+                <a href="quiz.html">
+                    COURSE QUIZ
+                </a>
+            </li>
+
+            <li>
+                <a href="#guide">
+                    STUDENT GUIDE
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+            Sanchez Mira Campus
+        </span>
+
+        <h2>
+            CSU Sanchez Mira
+            Course Guide
+        </h2>
+
+        <p>
+            Explore the undergraduate degree programs offered at
+            Cagayan State University — Sanchez Mira Campus and discover
+            the academic path that matches your interests and goals.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#courses" class="btn btn-primary">
+                Explore Programs
+            </a>
+
+            <a href="quiz.html" class="btn btn-outline">
+                Take the Course Quiz
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK LINKS -->
+
+<section class="quick-links">
+
+    <div class="container">
+
+        <div class="quick-grid">
+
+            <a href="#courses" class="quick-item">
+
+                <div class="quick-number">
+                    01
+                </div>
+
+                <h3>
+                    Undergraduate Programs
+                </h3>
+
+                <p>
+                    Browse CSU-SM degree programs
+                </p>
+
+            </a>
+
+            <a href="quiz.html" class="quick-item">
+
+                <div class="quick-number">
+                    02
+                </div>
+
+                <h3>
+                    Course Quiz
+                </h3>
+
+                <p>
+                    Explore courses based on your interests
+                </p>
+
+            </a>
+
+            <a href="#about" class="quick-item">
+
+                <div class="quick-number">
+                    03
+                </div>
+
+                <h3>
+                    About CSU-SM
+                </h3>
+
+                <p>
+                    Learn about the campus
+                </p>
+
+            </a>
+
+            <a href="#guide" class="quick-item">
+
+                <div class="quick-number">
+                    04
+                </div>
+
+                <h3>
+                    Student Guide
+                </h3>
+
+                <p>
+                    Helpful information for students
+                </p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COURSES -->
+
+<section class="section courses-section" id="courses">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Academic Programs
+            </div>
+
+            <h2 class="section-title">
+                Undergraduate Degree Programs
+            </h2>
+
+            <p class="section-description">
+                Explore the undergraduate programs currently listed
+                by Cagayan State University — Sanchez Mira Campus.
+            </p>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="filter-buttons">
+
+            <button class="filter-btn active" data-filter="all">
+                All Programs
+            </button>
+
+            <button class="filter-btn" data-filter="agriculture">
+                Agriculture
+            </button>
+
+            <button class="filter-btn" data-filter="business">
+                Business
+            </button>
+
+            <button class="filter-btn" data-filter="criminology">
+                Criminology
+            </button>
+
+            <button class="filter-btn" data-filter="engineering">
+                Engineering
+            </button>
+
+            <button class="filter-btn" data-filter="hospitality">
+                Hospitality
+            </button>
+
+            <button class="filter-btn" data-filter="industrial">
+                Industrial Technology
+            </button>
+
+            <button class="filter-btn" data-filter="information">
+                Information Technology
+            </button>
+
+            <button class="filter-btn" data-filter="education">
+                Teacher Education
+            </button>
+
+        </div>
+
+
+        <!-- AGRICULTURE -->
+
+        <div class="college-heading">
+            <h3>
+                College of Agriculture
+            </h3>
+        </div>
+
+        <div class="course-grid">
+
+
+            <article class="course-card"
+                     data-category="agriculture">
+
+                <div class="course-code">
+                    BSA
+                </div>
+
+                <h3>
+                    Bachelor of Science in Agriculture
+                </h3>
+
+                <p>
+                    A degree program focused on agricultural science,
+                    production, technology, and sustainable agriculture.
+                </p>
+
+                <div class="course-major">
+                    <strong>Major:</strong>
+                    Crop Science
+                </div>
+
+                <div class="course-college">
+                    College of Agriculture
+                </div>
+
+            </article>
+
+
+            <article class="course-card"
+                     data-category="agriculture">
+
+                <div class="course-code">
+                    BSA
+                </div>
+
+                <h3>
+                    Bachelor of Science in Agriculture
+                </h3>
+
+                <p>
+                    A degree program focused on agricultural science,
+                    production, technology, and animal production.
+                </p>
+
+                <div class="course-major">
+                    <strong>Major:</strong>
+                    Animal Science
+                </div>
+
+                <div class="course-college">
+                    College of Agriculture
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- BUSINESS -->
+
+        <div class="college-heading">
+            <h3>
+                College of Business Entrepreneurship & Accountancy
+            </h3>
+        </div>
+
+        <div class="course-grid">
+
+            <article class="course-card"
+                     data-category="business">
+
+                <div class="course-code">
+                    BSAIS
+                </div>
+
+                <h3>
+                    Bachelor of Science in Accounting Information System
+                </h3>
+
+                <p>
+                    A business and accounting program combining accounting
+                    knowledge with information systems and technology.
+                </p>
+
+                <div class="course-major">
+                    <strong>Program:</strong>
+                    Accounting Information System
+                </div>
+
+                <div class="course-college">
+                    College of Business Entrepreneurship & Accountancy
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- CRIMINOLOGY -->
+
+        <div class="college-heading">
+            <h3>
+                College of Criminal Justice Education
+            </h3>
+        </div>
+
+        <div class="course-grid">
+
+            <article class="course-card"
+                     data-category="criminology">
+
+                <div class="course-code">
+                    BS CRIM
+                </div>
+
+                <h3>
+                    Bachelor of Science in Criminology
+                </h3>
+
+                <p>
+                    A program focused on criminology, criminal justice,
+                    law enforcement, public safety, and related services.
+                </p>
+
+                <div class="course-major">
+                    <strong>Program:</strong>
+                    Criminology
+                </div>
+
+                <div class="course-college">
+                    College of Criminal Justice Education
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- ENGINEERING -->
+
+        <div class="college-heading">
+            <h3>
+                College of Engineering
+            </h3>
+        </div>
+
+        <div class="course-grid">
+
+            <article class="course-card"
+                     data-category="engineering">
+
+                <div class="course-code">
+                    BSABE
+                </div>
+
+                <h3>
+                    Bachelor of Science in Agricultural and Biosystems Engineering
+                </h3>
+
+                <p>
+                    An engineering program applying engineering principles
+                    to agriculture, biological systems, machinery, and
+                    agricultural production.
+                </p>
+
+                <div class="course-major">
+                    <strong>Program:</strong>
+                    Agricultural and Biosystems Engineering
+                </div>
+
+                <div class="course-college">
+                    College of Engineering
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- HOSPITALITY -->
+
+        <div class="college-heading">
+            <h3>
+                College of Hospitality Management
+            </h3>
+        </div>
+
+        <div class="course-grid">
+
+            <article class="course-card"
+                     data-category="hospitality">
+
+                <div class="course-code">
+                    BSHM
+                </div>
+
+                <h3>
+                    Bachelor of Science in Hospitality Management
+                </h3>
+
+                <p>
+                    A program preparing students for professional careers
+                    in hospitality, accommodation, food service, and
+                    related industries.
+                </p>
+
+                <div class="course-major">
+                    <strong>Program:</strong>
+                    Hospitality Management
+                </div>
+
+                <div class="course-college">
+                    College of Hospitality Management
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- INDUSTRIAL TECHNOLOGY -->
+
+        <div class="college-heading">
+            <h3>
+                College of Industrial Technology
+            </h3>
+        </div>
+
+        <div class="course-grid">
+
+
+            <article class="course-card"
+                     data-category="industrial">
+
+                <div class="course-code">
+                    BSIT
+                </div>
+
+                <h3>
+                    Bachelor of Science in Industrial Technology
+                </h3>
+
+                <p>
+                    A technical program preparing students for practical
+                    and professional work in industrial technology.
+                </p>
+
+                <div class="course-major">
+                    <strong>Major:</strong>
+                    Automotive Technology
+                </div>
+
+                <div class="course-college">
+                    College of Industrial Technology
+                </div>
+
+            </article>
+
+
+            <article class="course-card"
+                     data-category="industrial">
+
+                <div class="course-code">
+                    BSIT
+                </div>
+
+                <h3>
+                    Bachelor of Science in Industrial Technology
+                </h3>
+
+                <p>
+                    A technical program focused on drafting, design,
+                    technical drawing, and related industrial applications.
+                </p>
+
+                <div class="course-major">
+                    <strong>Major:</strong>
+                    Architectural Drafting
+                </div>
+
+                <div class="course-college">
+                    College of Industrial Technology
+                </div>
+
+            </article>
+
+
+            <article class="course-card"
+                     data-category="industrial">
+
+                <div class="course-code">
+                    BSIT
+                </div>
+
+                <h3>
+                    Bachelor of Science in Industrial Technology
+                </h3>
+
+                <p>
+                    A technical program preparing students for electrical
+                    technology applications and technical occupations.
+                </p>
+
+                <div class="course-major">
+                    <strong>Major:</strong>
+                    Electrical Technology
+                </div>
+
+                <div class="course-college">
+                    College of Industrial Technology
+                </div>
+
+            </article>
+
+
+            <article class="course-card"
+                     data-category="industrial">
+
+                <div class="course-code">
+                    BSIT
+                </div>
+
+                <h3>
+                    Bachelor of Science in Industrial Technology
+                </h3>
+
+                <p>
+                    A technical program covering electronics technology,
+                    equipment, systems, and practical applications.
+                </p>
+
+                <div class="course-major">
+                    <strong>Major:</strong>
+                    Electronics Technology
+                </div>
+
+                <div class="course-college">
+                    College of Industrial Technology
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- INFORMATION TECHNOLOGY -->
+
+        <div class="college-heading">
+            <h3>
+                College of Information and Computing Sciences
+            </h3>
+        </div>
+
+        <div class="course-grid">
+
+            <article class="course-card"
+                     data-category="information">
+
+                <div class="course-code">
+                    BSIT
+                </div>
+
+                <h3>
+                    Bachelor of Science in Information Technology
+                </h3>
+
+                <p>
+                    A computing program covering information technology,
+                    software, websites, systems, networks, and digital
+                    technologies.
+                </p>
+
+                <div class="course-major">
+                    <strong>Program:</strong>
+                    Information Technology
+                </div>
+
+                <div class="course-college">
+                    College of Information and Computing Sciences
+                </div>
+
+                <a href="bsit.html"
+                   style="
+                       margin-top:18px;
+                       color:#650000;
+                       font-weight:700;
+                       font-size:12px;
+                   ">
+
+                    View BSIT Guide →
+
+                </a>
+
+            </article>
+
+        </div>
+
+
+        <!-- TEACHER EDUCATION -->
+
+        <div class="college-heading">
+            <h3>
+                College of Teacher Education
+            </h3>
+        </div>
+
+        <div class="course-grid">
+
+
+            <article class="course-card"
+                     data-category="education">
+
+                <div class="course-code">
+                    BSED
+                </div>
+
+                <h3>
+                    Bachelor of Secondary Education
+                </h3>
+
+                <p>
+                    A teacher education program preparing students for
+                    teaching at the secondary education level.
+                </p>
+
+                <div class="course-major">
+                    <strong>Major:</strong>
+                    Biological Science
+                </div>
+
+                <div class="course-college">
+                    College of Teacher Education
+                </div>
+
+            </article>
+
+
+            <article class="course-card"
+                     data-category="education">
+
+                <div class="course-code">
+                    BSED
+                </div>
+
+                <h3>
+                    Bachelor of Secondary Education
+                </h3>
+
+                <p>
+                    A teacher education program preparing students to teach
+                    mathematics at the secondary level.
+                </p>
+
+                <div class="course-major">
+                    <strong>Major:</strong>
+                    Mathematics
+                </div>
+
+                <div class="course-college">
+                    College of Teacher Education
+                </div>
+
+            </article>
+
+
+            <article class="course-card"
+                     data-category="education">
+
+                <div class="course-code">
+                    BSED
+                </div>
+
+                <h3>
+                    Bachelor of Secondary Education
+                </h3>
+
+                <p>
+                    A teacher education program preparing students for
+                    teaching Filipino language and related subjects.
+                </p>
+
+                <div class="course-major">
+                    <strong>Major:</strong>
+                    Filipino
+                </div>
+
+                <div class="course-college">
+                    College of Teacher Education
+                </div>
+
+            </article>
+
+
+            <article class="course-card"
+                     data-category="education">
+
+                <div class="course-code">
+                    BSED
+                </div>
+
+                <h3>
+                    Bachelor of Secondary Education
+                </h3>
+
+                <p>
+                    A teacher education program preparing students for
+                    teaching English at the secondary level.
+                </p>
+
+                <div class="course-major">
+                    <strong>Major:</strong>
+                    English
+                </div>
+
+                <div class="course-college">
+                    College of Teacher Education
+                </div>
+
+            </article>
+
+
+            <article class="course-card"
+                     data-category="education">
+
+                <div class="course-code">
+                    BEED
+                </div>
+
+                <h3>
+                    Bachelor of Elementary Education
+                </h3>
+
+                <p>
+                    A teacher education program preparing students to teach
+                    varied subject areas at the elementary level.
+                </p>
+
+                <div class="course-major">
+                    <strong>Program:</strong>
+                    Elementary Education
+                </div>
+
+                <div class="course-college">
+                    College of Teacher Education
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section about-section" id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-image">
+
+                <img
+                    src="./campus.jpeg?v=3"
+                    alt="Cagayan State University Sanchez Mira Campus">
+
+            </div>
+
+            <div class="about-content">
+
+                <div class="section-label">
+                    About the Campus
+                </div>
+
+                <h2>
+                    Cagayan State University
+                    — Sanchez Mira Campus
+                </h2>
+
+                <p>
+                    Cagayan State University — Sanchez Mira Campus is
+                    one of the campuses of Cagayan State University
+                    serving students in Cagayan and the surrounding
+                    communities.
+                </p>
+
+                <p>
+                    This course guide provides a student-friendly way
+                    to explore the undergraduate degree programs
+                    officially listed for CSU Sanchez Mira Campus.
+                </p>
+
+                <a
+                    href="https://www.csusm.edu.ph/"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn"
+                    style="
+                        background:#650000;
+                        color:white;
+                        margin-top:10px;
+                    ">
+
+                    Official CSU-SM Website
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section class="section quiz-section">
+
+    <div class="container">
+
+        <div class="quiz-content">
+
+            <div class="section-label">
+                Course Selection
+            </div>
+
+            <h2>
+                Not sure which course is right for you?
+            </h2>
+
+            <p>
+                Take the course quiz and explore programs based
+                on your interests and preferences.
+            </p>
+
+            <a
+                href="quiz.html"
+                class="btn btn-primary">
+
+                Start Course Quiz
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STUDENT GUIDE -->
+
+<section class="section" id="guide">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Student Guide
+            </div>
+
+            <h2 class="section-title">
+                Before Choosing a Course
+            </h2>
+
+            <p class="section-description">
+                Consider your interests, strengths, career goals,
+                and the type of work you would like to pursue.
+            </p>
+
+        </div>
+
+        <div class="guide-grid">
+
+            <article class="guide-card">
+
+                <div class="guide-number">
+                    01
+                </div>
+
+                <h3>
+                    Know Your Interests
+                </h3>
+
+                <p>
+                    Think about the subjects, activities, and areas
+                    you enjoy learning about.
+                </p>
+
+            </article>
+
+
+            <article class="guide-card">
+
+                <div class="guide-number">
+                    02
+                </div>
+
+                <h3>
+                    Identify Your Strengths
+                </h3>
+
+                <p>
+                    Consider your current abilities and the skills
+                    you would like to develop.
+                </p>
+
+            </article>
+
+
+            <article class="guide-card">
+
+                <div class="guide-number">
+                    03
+                </div>
+
+                <h3>
+                    Consider Your Future
+                </h3>
+
+                <p>
+                    Research possible careers and consider how
+                    your chosen degree can support your goals.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-main">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+
+                    <h2>
+                        CSU Sanchez Mira
+                    </h2>
+
+                    <p>
+                        Undergraduate Course Guide for
+                        Cagayan State University — Sanchez Mira Campus.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Course Guide
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="#courses">
+                                Undergraduate Programs
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="bsit.html">
+                                BS Information Technology
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="quiz.html">
+                                Course Quiz
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        CSU-SM
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="#home">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#about">
+                                About
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.csusm.edu.ph/"
+                                target="_blank"
+                                rel="noopener">
+
+                                Official Website
+
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
             </div>
 
         </div>
@@ -1075,1135 +1974,130 @@
     </div>
 
 
-    <!-- =========================================================
-         HEADER
-    ========================================================== -->
+    <div class="footer-bottom">
 
-    <header class="main-header">
+        <div class="footer-bottom-container">
 
-        <div class="header-container">
-
-            <a href="index.html" class="brand">
-
-                <div class="brand-logo">
-                    CSU
-                </div>
-
-                <div class="brand-text">
-
-                    <h1>
-                        Cagayan State University
-                    </h1>
-
-                    <p>
-                        Sanchez Mira Campus • Course Guide
-                    </p>
-
-                </div>
-
-            </a>
-
-
-            <button
-                class="mobile-menu-button"
-                id="mobileMenuButton"
-                type="button"
-                aria-label="Open navigation menu">
-
-                MENU
-
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================== -->
-
-    <nav class="main-nav">
-
-        <div class="nav-container">
-
-            <ul class="nav-links" id="navLinks">
-
-                <li>
-                    <a href="#home" class="active">
-                        HOME
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#courses">
-                        COURSES
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#about">
-                        ABOUT
-                    </a>
-                </li>
-
-                <li>
-                    <a href="quiz.html">
-                        COURSE QUIZ
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#guide">
-                        STUDENT GUIDE
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </nav>
-
-
-    <!-- =========================================================
-         HERO
-    ========================================================== -->
-
-    <main>
-
-        <section class="hero" id="home">
-
-            <div class="hero-content">
-
-                <span class="hero-label">
-                    Sanchez Mira Campus
-                </span>
-
-                <h2>
-                    CSU Sanchez Mira
-                    Course Guide
-                </h2>
-
-                <p>
-                    Explore the degree programs offered at Cagayan State
-                    University — Sanchez Mira Campus and discover a course
-                    that matches your interests, strengths, and future goals.
-                </p>
-
-
-                <div class="hero-buttons">
-
-                    <a href="#courses" class="btn btn-primary">
-                        Explore Courses
-                    </a>
-
-                    <a href="quiz.html" class="btn btn-outline">
-                        Take the Course Quiz
-                    </a>
-
-                </div>
-
+            <div>
+                © 2026 CSU Sanchez Mira Course Guide
             </div>
 
-        </section>
-
-
-        <!-- =====================================================
-             QUICK LINKS
-        ====================================================== -->
-
-        <section class="quick-links">
-
-            <div class="container">
-
-                <div class="quick-grid">
-
-                    <a href="#courses" class="quick-item">
-
-                        <div class="quick-number">
-                            01
-                        </div>
-
-                        <h3>
-                            Degree Programs
-                        </h3>
-
-                        <p>
-                            Explore available courses
-                        </p>
-
-                    </a>
-
-
-                    <a href="quiz.html" class="quick-item">
-
-                        <div class="quick-number">
-                            02
-                        </div>
-
-                        <h3>
-                            Course Quiz
-                        </h3>
-
-                        <p>
-                            Find a course that fits you
-                        </p>
-
-                    </a>
-
-
-                    <a href="#about" class="quick-item">
-
-                        <div class="quick-number">
-                            03
-                        </div>
-
-                        <h3>
-                            About CSU-SM
-                        </h3>
-
-                        <p>
-                            Learn about the campus
-                        </p>
-
-                    </a>
-
-
-                    <a href="#guide" class="quick-item">
-
-                        <div class="quick-number">
-                            04
-                        </div>
-
-                        <h3>
-                            Student Guide
-                        </h3>
-
-                        <p>
-                            Helpful tips for applicants
-                        </p>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             COURSES
-        ====================================================== -->
-
-        <section class="section courses-section" id="courses">
-
-            <div class="container">
-
-                <div class="section-header">
-
-                    <div class="section-label">
-                        Academic Programs
-                    </div>
-
-                    <h2 class="section-title">
-                        Choose Your Course
-                    </h2>
-
-                    <p class="section-description">
-                        Browse the degree programs featured in this course
-                        guide and learn more about the field, possible
-                        interests, and academic direction of each program.
-                    </p>
-
-                </div>
-
-
-                <!-- FILTERS -->
-
-                <div class="filter-buttons">
-
-                    <button
-                        class="filter-btn active"
-                        data-filter="all"
-                        type="button">
-
-                        All
-
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="technology"
-                        type="button">
-
-                        Technology
-
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="education"
-                        type="button">
-
-                        Education
-
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="business"
-                        type="button">
-
-                        Business
-
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="public-service"
-                        type="button">
-
-                        Public Service
-
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="agriculture"
-                        type="button">
-
-                        Agriculture
-
-                    </button>
-
-                </div>
-
-
-                <!-- COURSE CARDS -->
-
-                <div class="course-grid" id="courseGrid">
-
-
-                    <!-- BSIT -->
-
-                    <article
-                        class="course-card"
-                        data-category="technology">
-
-                        <div class="course-code">
-                            BSIT
-                        </div>
-
-                        <h3>
-                            Bachelor of Science in Information Technology
-                        </h3>
-
-                        <p>
-                            A technology-focused program for students
-                            interested in computers, software, websites,
-                            information systems, networking, and digital
-                            technologies.
-                        </p>
-
-                        <div class="course-category">
-                            Technology
-                        </div>
-
-                        <a
-                            href="bsit.html"
-                            class="course-link">
-
-                            View BSIT Guide →
-
-                        </a>
-
-                    </article>
-
-
-                    <!-- BSED -->
-
-                    <article
-                        class="course-card"
-                        data-category="education">
-
-                        <div class="course-code">
-                            BSED
-                        </div>
-
-                        <h3>
-                            Bachelor of Secondary Education
-                        </h3>
-
-                        <p>
-                            A teacher education program designed for students
-                            who want to prepare for teaching and education
-                            careers at the secondary level.
-                        </p>
-
-                        <div class="course-category">
-                            Education
-                        </div>
-
-                        <a
-                            href="bsed.html"
-                            class="course-link">
-
-                            View BSED Guide →
-
-                        </a>
-
-                    </article>
-
-
-                    <!-- BEED -->
-
-                    <article
-                        class="course-card"
-                        data-category="education">
-
-                        <div class="course-code">
-                            BEED
-                        </div>
-
-                        <h3>
-                            Bachelor of Elementary Education
-                        </h3>
-
-                        <p>
-                            A program for students who want to develop the
-                            knowledge and skills needed for teaching and
-                            supporting learners in elementary education.
-                        </p>
-
-                        <div class="course-category">
-                            Education
-                        </div>
-
-                        <a
-                            href="beed.html"
-                            class="course-link">
-
-                            View BEED Guide →
-
-                        </a>
-
-                    </article>
-
-
-                    <!-- BSBA -->
-
-                    <article
-                        class="course-card"
-                        data-category="business">
-
-                        <div class="course-code">
-                            BSBA
-                        </div>
-
-                        <h3>
-                            Bachelor of Science in Business Administration
-                        </h3>
-
-                        <p>
-                            A business-oriented program covering areas such
-                            as management, entrepreneurship, organizations,
-                            marketing, and business operations.
-                        </p>
-
-                        <div class="course-category">
-                            Business
-                        </div>
-
-                        <a
-                            href="bsba.html"
-                            class="course-link">
-
-                            View BSBA Guide →
-
-                        </a>
-
-                    </article>
-
-
-                    <!-- BS CRIM -->
-
-                    <article
-                        class="course-card"
-                        data-category="public-service">
-
-                        <div class="course-code">
-                            BS CRIM
-                        </div>
-
-                        <h3>
-                            Bachelor of Science in Criminology
-                        </h3>
-
-                        <p>
-                            A public-service-oriented program for students
-                            interested in criminology, law enforcement,
-                            public safety, and related fields.
-                        </p>
-
-                        <div class="course-category">
-                            Public Service
-                        </div>
-
-                        <a
-                            href="bscrim.html"
-                            class="course-link">
-
-                            View BS Criminology Guide →
-
-                        </a>
-
-                    </article>
-
-
-                    <!-- BS AGRICULTURE -->
-
-                    <article
-                        class="course-card"
-                        data-category="agriculture">
-
-                        <div class="course-code">
-                            BS AGRICULTURE
-                        </div>
-
-                        <h3>
-                            Bachelor of Science in Agriculture
-                        </h3>
-
-                        <p>
-                            A program focused on agriculture, farming,
-                            agricultural technologies, production, and
-                            sustainable practices that support communities.
-                        </p>
-
-                        <div class="course-category">
-                            Agriculture
-                        </div>
-
-                        <a
-                            href="bsag.html"
-                            class="course-link">
-
-                            View Agriculture Guide →
-
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             ABOUT
-        ====================================================== -->
-
-        <section class="section about-section" id="about">
-
-            <div class="container">
-
-                <div class="about-grid">
-
-
-                    <div class="about-image">
-
-                        <img
-                            src="./campus.jpeg?v=2"
-                            alt="Cagayan State University Sanchez Mira Campus"
-                            onerror="this.style.display='none';">
-
-                    </div>
-
-
-                    <div class="about-content">
-
-                        <div class="section-label">
-                            About the Campus
-                        </div>
-
-                        <h2>
-                            Cagayan State University
-                            — Sanchez Mira Campus
-                        </h2>
-
-                        <p>
-                            Cagayan State University — Sanchez Mira Campus
-                            is one of the campuses of Cagayan State
-                            University serving learners in the region.
-                        </p>
-
-                        <p>
-                            This course guide is designed as a simple
-                            student-friendly resource for exploring the
-                            degree programs featured at CSU-Sanchez Mira
-                            Campus.
-                        </p>
-
-
-                        <ul class="about-list">
-
-                            <li>
-                                <strong>Location:</strong>
-                                Sanchez Mira, Cagayan, Philippines
-                            </li>
-
-                            <li>
-                                <strong>Purpose:</strong>
-                                Course and degree-program guide
-                            </li>
-
-                            <li>
-                                <strong>Campus:</strong>
-                                CSU Sanchez Mira Campus
-                            </li>
-
-                        </ul>
-
-
-                        <a
-                            href="https://sanchezmira.csu.edu.ph/"
-                            target="_blank"
-                            rel="noopener"
-                            class="btn"
-                            style="
-                                background:#650000;
-                                color:#ffffff;
-                            ">
-
-                            Visit Official CSU-SM Website
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             QUIZ
-        ====================================================== -->
-
-        <section class="section quiz-section">
-
-            <div class="container">
-
-                <div class="quiz-content">
-
-                    <div class="section-label">
-                        Course Selection
-                    </div>
-
-                    <h2>
-                        Not sure which course is right for you?
-                    </h2>
-
-                    <p>
-                        Take the course quiz and answer a few simple
-                        questions about your interests and preferences.
-                    </p>
-
-                    <a
-                        href="quiz.html"
-                        class="btn btn-primary">
-
-                        Start Course Quiz
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             STUDENT GUIDE
-        ====================================================== -->
-
-        <section class="section guide-section" id="guide">
-
-            <div class="container">
-
-                <div class="section-header">
-
-                    <div class="section-label">
-                        Student Guide
-                    </div>
-
-                    <h2 class="section-title">
-                        Before Choosing a Course
-                    </h2>
-
-                    <p class="section-description">
-                        Consider your interests, strengths, goals, and
-                        preferred career direction before making a decision.
-                    </p>
-
-                </div>
-
-
-                <div class="guide-grid">
-
-
-                    <article class="guide-card">
-
-                        <div class="guide-number">
-                            01
-                        </div>
-
-                        <h3>
-                            Know Your Interests
-                        </h3>
-
-                        <p>
-                            Think about the subjects, activities, and
-                            problems you enjoy working with.
-                        </p>
-
-                    </article>
-
-
-                    <article class="guide-card">
-
-                        <div class="guide-number">
-                            02
-                        </div>
-
-                        <h3>
-                            Identify Your Strengths
-                        </h3>
-
-                        <p>
-                            Consider the skills you already have and the
-                            skills you are willing to develop.
-                        </p>
-
-                    </article>
-
-
-                    <article class="guide-card">
-
-                        <div class="guide-number">
-                            03
-                        </div>
-
-                        <h3>
-                            Think About Your Future
-                        </h3>
-
-                        <p>
-                            Research possible careers and consider how a
-                            degree can support your long-term goals.
-                        </p>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer>
-
-        <div class="footer-main">
-
-            <div class="container">
-
-                <div class="footer-grid">
-
-
-                    <div class="footer-brand">
-
-                        <h2>
-                            CSU Sanchez Mira
-                        </h2>
-
-                        <p>
-                            Course Guide for students exploring degree
-                            programs at Cagayan State University —
-                            Sanchez Mira Campus.
-                        </p>
-
-                    </div>
-
-
-                    <div class="footer-column">
-
-                        <h3>
-                            Course Guide
-                        </h3>
-
-                        <ul>
-
-                            <li>
-                                <a href="bsit.html">
-                                    BSIT
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="bsed.html">
-                                    BSED
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="beed.html">
-                                    BEED
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="bsba.html">
-                                    BSBA
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="bscrim.html">
-                                    Criminology
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="bsag.html">
-                                    Agriculture
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-
-                    <div class="footer-column">
-
-                        <h3>
-                            Quick Links
-                        </h3>
-
-                        <ul>
-
-                            <li>
-                                <a href="#home">
-                                    Home
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#courses">
-                                    Courses
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#about">
-                                    About
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="quiz.html">
-                                    Course Quiz
-                                </a>
-                            </li>
-
-                            <li>
-                                <a
-                                    href="https://sanchezmira.csu.edu.ph/"
-                                    target="_blank"
-                                    rel="noopener">
-
-                                    Official CSU-SM Website
-
-                                </a>
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-
-                </div>
-
+            <div>
+                Sanchez Mira, Cagayan, Philippines
             </div>
 
         </div>
 
+    </div>
 
-        <div class="footer-bottom">
-
-            <div class="footer-bottom-container">
-
-                <div>
-                    © 2026 CSU Sanchez Mira Course Guide
-                </div>
-
-                <div>
-                    Cagayan State University — Sanchez Mira Campus
-                </div>
-
-            </div>
-
-        </div>
-
-    </footer>
+</footer>
 
 
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================== -->
+<script>
 
-    <script>
+    /* LIVE PHILIPPINE TIME */
 
-        /* =====================================================
-           LIVE PHILIPPINE DATE AND TIME
-        ====================================================== */
+    function updateClock() {
 
-        function updateClock() {
+        const now = new Date();
 
-            const now = new Date();
+        const dateOptions = {
+            timeZone: "Asia/Manila",
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        };
 
+        const timeOptions = {
+            timeZone: "Asia/Manila",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true
+        };
 
-            const dateOptions = {
-                timeZone: "Asia/Manila",
-                weekday: "short",
-                month: "short",
-                day: "numeric",
-                year: "numeric"
-            };
-
-
-            const timeOptions = {
-                timeZone: "Asia/Manila",
-                hour: "2-digit",
-                minute: "2-digit",
-                second: "2-digit",
-                hour12: true
-            };
-
-
-            const date = new Intl.DateTimeFormat(
+        document.getElementById("liveDate").textContent =
+            new Intl.DateTimeFormat(
                 "en-PH",
                 dateOptions
             ).format(now);
 
-
-            const time = new Intl.DateTimeFormat(
+        document.getElementById("liveTime").textContent =
+            new Intl.DateTimeFormat(
                 "en-PH",
                 timeOptions
             ).format(now);
 
+    }
 
-            const dateElement =
-                document.getElementById("liveDate");
+    updateClock();
 
-            const timeElement =
-                document.getElementById("liveTime");
-
-
-            if (dateElement) {
-                dateElement.textContent = date;
-            }
+    setInterval(updateClock, 1000);
 
 
-            if (timeElement) {
-                timeElement.textContent = time;
-            }
+    /* MOBILE MENU */
 
-        }
+    const mobileButton =
+        document.getElementById("mobileMenuButton");
 
+    const navLinks =
+        document.getElementById("navLinks");
 
-        updateClock();
+    mobileButton.addEventListener(
+        "click",
+        function () {
 
-        setInterval(updateClock, 1000);
-
-
-
-        /* =====================================================
-           MOBILE MENU
-        ====================================================== */
-
-        const mobileMenuButton =
-            document.getElementById("mobileMenuButton");
-
-        const navLinks =
-            document.getElementById("navLinks");
-
-
-        if (mobileMenuButton && navLinks) {
-
-            mobileMenuButton.addEventListener(
-                "click",
-                function () {
-
-                    navLinks.classList.toggle("show");
-
-                }
-            );
-
-
-            const navigationLinks =
-                navLinks.querySelectorAll("a");
-
-
-            navigationLinks.forEach(function (link) {
-
-                link.addEventListener(
-                    "click",
-                    function () {
-
-                        navLinks.classList.remove("show");
-
-                    }
-                );
-
-            });
+            navLinks.classList.toggle("show");
 
         }
+    );
 
 
+    /* COURSE FILTER */
 
-        /* =====================================================
-           COURSE FILTER
-        ====================================================== */
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
 
-        const filterButtons =
-            document.querySelectorAll(".filter-btn");
-
-        const courseCards =
-            document.querySelectorAll(".course-card");
+    const courseCards =
+        document.querySelectorAll(".course-card");
 
 
-        filterButtons.forEach(function (button) {
+    filterButtons.forEach(function(button) {
 
-            button.addEventListener(
-                "click",
-                function () {
+        button.addEventListener(
+            "click",
+            function() {
 
-                    const selectedCategory =
-                        button.getAttribute("data-filter");
-
-
-                    /* Remove active class */
-
-                    filterButtons.forEach(function (btn) {
-
-                        btn.classList.remove("active");
-
-                    });
+                const filter =
+                    button.getAttribute("data-filter");
 
 
-                    /* Activate selected button */
+                filterButtons.forEach(function(btn) {
 
-                    button.classList.add("active");
-
-
-                    /* Filter courses */
-
-                    courseCards.forEach(function (card) {
-
-                        const cardCategory =
-                            card.getAttribute("data-category");
-
-
-                        if (
-                            selectedCategory === "all" ||
-                            selectedCategory === cardCategory
-                        ) {
-
-                            card.classList.remove("hidden");
-
-                        } else {
-
-                            card.classList.add("hidden");
-
-                        }
-
-                    });
-
-                }
-            );
-
-        });
-
-
-
-        /* =====================================================
-           ACTIVE NAVIGATION ON SCROLL
-        ====================================================== */
-
-        const sections =
-            document.querySelectorAll("main section[id]");
-
-        const navItems =
-            document.querySelectorAll(
-                ".nav-links a[href^='#']"
-            );
-
-
-        window.addEventListener(
-            "scroll",
-            function () {
-
-                let currentSection = "";
-
-
-                sections.forEach(function (section) {
-
-                    const sectionTop =
-                        section.offsetTop - 130;
-
-
-                    if (
-                        window.scrollY >= sectionTop
-                    ) {
-
-                        currentSection =
-                            section.getAttribute("id");
-
-                    }
+                    btn.classList.remove("active");
 
                 });
 
-
-                navItems.forEach(function (link) {
-
-                    link.classList.remove("active");
+                button.classList.add("active");
 
 
-                    const target =
-                        link.getAttribute("href");
+                courseCards.forEach(function(card) {
+
+                    const category =
+                        card.getAttribute("data-category");
 
 
                     if (
-                        target === "#" + currentSection
+                        filter === "all" ||
+                        filter === category
                     ) {
 
-                        link.classList.add("active");
+                        card.classList.remove("hidden");
+
+                    } else {
+
+                        card.classList.add("hidden");
 
                     }
 
@@ -2212,7 +2106,61 @@
             }
         );
 
-    </script>
+    });
+
+
+    /* ACTIVE NAVIGATION */
+
+    const sections =
+        document.querySelectorAll("main section[id]");
+
+    const navItems =
+        document.querySelectorAll(
+            ".nav-links a[href^='#']"
+        );
+
+
+    window.addEventListener(
+        "scroll",
+        function() {
+
+            let current = "";
+
+            sections.forEach(function(section) {
+
+                const sectionTop =
+                    section.offsetTop - 150;
+
+                if (window.scrollY >= sectionTop) {
+
+                    current =
+                        section.getAttribute("id");
+
+                }
+
+            });
+
+
+            navItems.forEach(function(link) {
+
+                link.classList.remove("active");
+
+                if (
+                    link.getAttribute("href") ===
+                    "#" + current
+                ) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
+
+        }
+    );
+
+</script>
 
 </body>
 </html>
+```
